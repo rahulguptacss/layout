@@ -1,0 +1,217 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { 
+    Headset,
+    MessageSquareText,
+    ClipboardList,
+    Home,
+    SprayCan,
+    Sparkles,
+    Search,
+    ChevronRight,
+    Wand2
+} from "lucide-react";
+
+const steps = [
+    {
+        num: "01",
+        title: "BOOK & SCHEDULE",
+        desc: "Choose your preferred date & time and book our cleaning service in just a few clicks.",
+        renderIcon: () => (
+            <div className="relative w-full h-full flex items-center justify-center">
+                <Headset size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#548A54] transition-colors duration-300" />
+                <MessageSquareText size={22} className="absolute right-7 top-8 stroke-[2] text-[#548A54]" />
+            </div>
+        )
+    },
+    {
+        num: "02",
+        title: "ASSESSMENT",
+        desc: "Our team assesses your home and understands your cleaning needs.",
+        renderIcon: () => (
+            <div className="relative w-full h-full flex items-center justify-center">
+                <ClipboardList size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#548A54] transition-colors duration-300" />
+                <div className="absolute right-5 bottom-6 bg-[#FAFCFB] group-hover:bg-white rounded-sm p-0.5 transition-colors duration-300">
+                    <Home size={22} className="stroke-[2.5] text-[#548A54]" />
+                </div>
+            </div>
+        )
+    },
+    {
+        num: "03",
+        title: "CLEANING BEGINS",
+        desc: "We use safe products and proven techniques to start the deep cleaning process.",
+        renderIcon: () => (
+            <div className="relative w-full h-full flex items-center justify-center">
+                <SprayCan size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#548A54] transition-colors duration-300" />
+                <Sparkles size={24} className="absolute right-6 top-6 stroke-[2] text-[#548A54]" />
+            </div>
+        )
+    },
+    {
+        num: "04",
+        title: "QUALITY CHECK",
+        desc: "Our supervisor inspects every area to ensure top-quality cleaning standards.",
+        renderIcon: () => (
+            <div className="relative w-full h-full flex items-center justify-center">
+                <ClipboardList size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#548A54] transition-colors duration-300" />
+                <div className="absolute right-3 bottom-5 bg-[#FAFCFB] group-hover:bg-white rounded-full p-0.5 transition-colors duration-300">
+                    <Search size={24} className="stroke-[2.5] text-[#548A54]" />
+                </div>
+            </div>
+        )
+    },
+    {
+        num: "05",
+        title: "SPOTLESS HOME",
+        desc: "We leave your home spotless, fresh, and ready for you to relax and enjoy.",
+        renderIcon: () => (
+            <div className="relative w-full h-full flex items-center justify-center">
+                <Home size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#548A54] transition-colors duration-300" />
+                <Sparkles size={28} className="absolute right-4 top-5 stroke-[2] text-[#548A54]" />
+            </div>
+        )
+    },
+];
+
+export default function WorkProcess() {
+    return (
+        <section className="relative bg-white py-24 overflow-hidden">
+            
+            {/* Background Decor: Bottom Wave */}
+            <div className="absolute bottom-0 left-0 w-full z-0 pointer-events-none">
+                <svg viewBox="0 0 1440 120" className="w-full h-auto block" preserveAspectRatio="none">
+                    <path fill="#F4F8F5" d="M0,60 C320,130 420,-10 840,60 C1140,110 1340,30 1440,10 L1440,120 L0,120 Z"></path>
+                </svg>
+            </div>
+
+            {/* Background Decor: Floating Bubbles Top Right */}
+            <div className="absolute top-10 right-20 w-12 h-12 rounded-full border-[1.5px] border-[#548A54] opacity-10 pointer-events-none"></div>
+            <div className="absolute top-24 right-32 w-5 h-5 rounded-full bg-[#548A54] opacity-[0.08] pointer-events-none"></div>
+            <div className="absolute top-32 right-12 w-8 h-8 rounded-full border border-[#548A54] opacity-10 pointer-events-none"></div>
+
+            {/* Background Decor Elements: Dot Grids */}
+            <div className="absolute top-24 left-10 hidden lg:block opacity-[0.15] z-0 pointer-events-none">
+                <div className="grid grid-cols-4 gap-2.5">
+                    {Array.from({ length: 24 }).map((_, i) => (
+                        <span key={i} className="w-1.5 h-1.5 bg-gray-500 rounded-full"></span>
+                    ))}
+                </div>
+            </div>
+            
+            <div className="absolute bottom-32 right-10 hidden lg:block opacity-[0.15] z-0 pointer-events-none">
+                <div className="grid grid-cols-4 gap-2.5">
+                    {Array.from({ length: 24 }).map((_, i) => (
+                        <span key={i} className="w-1.5 h-1.5 bg-gray-500 rounded-full"></span>
+                    ))}
+                </div>
+            </div>
+
+            <div className="max-w-[1320px] mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+                
+                {/* Header */}
+                <div className="text-center max-w-2xl mx-auto mb-20">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 border border-[#548A54]/50 rounded-full px-5 py-1.5 mb-6 bg-white shadow-sm"
+                    >
+                        <Wand2 size={16} className="text-[#548A54]" />
+                        <span className="text-[#548A54] font-bold text-[12px] tracking-[0.15em] uppercase">
+                            Work Process
+                        </span>
+                    </motion.div>
+
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-[#1F2937] text-4xl md:text-[54px] font-extrabold leading-[1.1] tracking-tight"
+                    >
+                        Our Simple 5 Step <br className="hidden md:block" />
+                        <span className="text-[#548A54]">Cleaning</span> Process
+                    </motion.h2>
+
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="flex items-center justify-center gap-4 my-8"
+                    >
+                        <div className="h-[1.5px] w-12 bg-[#E5E7EB]"></div>
+                        <Home size={26} className="text-[#548A54]" />
+                        <div className="h-[1.5px] w-12 bg-[#E5E7EB]"></div>
+                    </motion.div>
+
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="text-[#6B7280] text-[16px] md:text-[18px] leading-relaxed max-w-lg mx-auto"
+                    >
+                        We follow a simple and effective process to make your home clean, fresh and comfortable.
+                    </motion.p>
+                </div>
+
+                {/* Steps Timeline - Reduced Max Width to bring icons closer */}
+                <div className="max-w-[1150px] mx-auto flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0">
+                    {steps.map((step, index) => {
+                        return (
+                            <div key={index} className="group relative flex-1 w-full flex flex-col items-center cursor-pointer">
+                                
+                                {/* Connector Line (Desktop Only) */}
+                                {index < steps.length - 1 && (
+                                    <div className="hidden lg:flex absolute top-[65px] left-[50%] w-full items-center justify-center z-0 px-[75px]">
+                                        <div className="w-full border-t-[2px] border-dashed border-[#D1D5DB] transition-colors duration-300 group-hover:border-[#548A54]"></div>
+                                        <ChevronRight className="text-[#548A54] -ml-2 shrink-0 transition-transform duration-300 group-hover:translate-x-1" size={20} strokeWidth={3} />
+                                    </div>
+                                )}
+
+                                {/* Icon Circle - Larger Size & Thin Border */}
+                                <motion.div 
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.1 * index, type: "spring", stiffness: 100 }}
+                                    className="relative z-10 w-[130px] h-[130px] rounded-full bg-[#FAFCFB] border border-[#548A54]/30 shadow-sm flex items-center justify-center mb-6 transition-all duration-300 group-hover:border-[#548A54] group-hover:bg-white group-hover:-translate-y-2 group-hover:shadow-[0_15px_30px_rgba(84,138,84,0.15)]"
+                                >
+                                    {step.renderIcon()}
+                                    
+                                    {/* Number Badge */}
+                                    <div className="absolute -bottom-3 w-[30px] h-[30px] rounded-full bg-[#548A54] text-white flex items-center justify-center text-[12px] font-bold border-2 border-white shadow-sm transition-transform duration-300 group-hover:scale-110">
+                                        {step.num}
+                                    </div>
+                                </motion.div>
+
+                                {/* Content */}
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.1 * index + 0.2 }}
+                                    className="text-center px-2 transition-all duration-300 group-hover:-translate-y-1"
+                                >
+                                    <h4 className="text-[#1F2937] font-extrabold text-[13px] md:text-[14px] tracking-wide uppercase transition-colors duration-300 group-hover:text-[#548A54]">
+                                        {step.title}
+                                    </h4>
+                                    
+                                    {/* Small Divider */}
+                                    <div className="w-[25px] h-[3px] bg-[#548A54] mx-auto mt-3 mb-4 rounded-full transition-all duration-300 group-hover:w-[45px]"></div>
+                                    
+                                    <p className="text-[#6B7280] text-[12px] md:text-[13px] leading-relaxed max-w-[200px] mx-auto transition-colors duration-300 group-hover:text-[#1F2937]">
+                                        {step.desc}
+                                    </p>
+                                </motion.div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+}
