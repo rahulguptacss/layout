@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Users, ThumbsUp, ClipboardCheck, Award } from "lucide-react";
-import { motion, useInView, animate } from "framer-motion";
+import { motion, useInView, animate, Variants } from "framer-motion";
 
 const stats = [
     {
@@ -54,7 +54,7 @@ function Counter({ value }: { value: string }) {
 }
 
 export default function StatsSection() {
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -64,7 +64,7 @@ export default function StatsSection() {
         },
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
     };
