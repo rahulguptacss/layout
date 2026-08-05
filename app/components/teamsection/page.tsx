@@ -22,10 +22,32 @@ const teamMembers = [
         name: "Emily Stone",
         role: "Housekeeping Expert",
         image: "/team/4.jpg"
+    },
+    {
+        name: "Jack Farnes",
+        role: "Head of Cleaner",
+        image: "/team/1.jpg"
+    },
+    {
+        name: "Farnej Dev",
+        role: "Cleaner",
+        image: "/team/2.jpg"
+    },
+    {
+        name: "Jack Moris",
+        role: "Assistant",
+        image: "/team/3.jpg"
+    },
+    {
+        name: "Emily Stone",
+        role: "Housekeeping Expert",
+        image: "/team/4.jpg"
     }
 ];
 
-export default function TeamSection() {
+export default function TeamSection({ limit }: { limit?: number }) {
+    const displayedMembers = limit ? teamMembers.slice(0, limit) : teamMembers;
+    
     return (
         <section className="bg-white py-16 md:py-20 lg:py-24">
             <div className="max-w-[1320px] mx-auto px-5 lg:px-8">
@@ -52,7 +74,7 @@ export default function TeamSection() {
 
                 {/* Team Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-                    {teamMembers.map((member, index) => (
+                    {displayedMembers.map((member, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}

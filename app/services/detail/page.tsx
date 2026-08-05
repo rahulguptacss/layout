@@ -3,6 +3,7 @@ import Header from '../../components/header/page'
 import Footer from '../../components/footer/page'
 import PageBanner from '../../components/pagebanner/page'
 import { Search, ChevronRight, FileText, CheckCircle2, Download } from 'lucide-react'
+import CalculateCTA from '../../components/calculatecta/page'
 
 export default function ServiceDetail() {
     return (
@@ -116,6 +117,7 @@ export default function ServiceDetail() {
                 </div>
             </section>
 
+            <CalculateCTA />
             <Footer />
         </main>
     )

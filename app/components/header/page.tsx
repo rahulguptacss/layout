@@ -19,7 +19,19 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
     { title: "Home", href: "/" },
-    { title: "About Us", href: "/about" },
+    { 
+        title: "About Us", 
+        href: "/about",
+        dropdown: true,
+        subLinks: [
+            { title: "Pricing", href: "/pricing" },
+            { title: "Testimonials", href: "/testimonials" },
+            { title: "Faqs", href: "/faqs" },
+            { title: "Awards", href: "/awards" },
+            { title: "Our Team", href: "/team" },
+            { title: "Career", href: "/career" }
+        ]
+    },
     { title: "Services", href: "/services" },
     { title: "Projects", href: "/projects" },
     { title: "Industries We Serve", href: "/industries" },
@@ -58,8 +70,9 @@ export default function Header() {
                                     `}
                                 >
                                     {item.title}
-
-
+                                    {item.dropdown && (
+                                        <ChevronDown size={16} className="mt-0.5 transition-transform duration-300 group-hover:rotate-180" />
+                                    )}
                                 </Link>
 
                                 {item.dropdown && item.subLinks && (

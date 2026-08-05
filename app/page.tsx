@@ -11,6 +11,7 @@ import FeedbackSection from "./components/feedbacksection/page";
 import NewsSection from "./components/newssection/page";
 import CalculateCTASection from "./components/calculatecta/page";
 import Hero from "./components/hero/page";
+import TeamSection from "./components/teamsection/page";
 
 export default function Home() {
   return (
@@ -24,8 +25,9 @@ export default function Home() {
       <PartnersSection />
       <ProjectSection />
       <AchievementSection />
+      <TeamSection limit={4} />
       <FeedbackSection />
-      <NewsSection />
+      <NewsSection limit={3} />
       <CalculateCTASection />
       <Footer />
     </main>
