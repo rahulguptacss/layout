@@ -5,6 +5,7 @@
 ================================ */
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
     PaintRoller,
@@ -54,6 +55,34 @@ const services: ServiceItem[] = [
     },
     {
         id: 4,
+        title: "Corona Control",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
+        image: "/services/service-4.png",
+        icon: Biohazard,
+    },
+    {
+        id: 5,
+        title: "Floor Cleaning",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
+        image: "/services/service-1.png",
+        icon: PaintRoller,
+    },
+    {
+        id: 6,
+        title: "Window Cleaning",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
+        image: "/services/service-2.png",
+        icon: AppWindow,
+    },
+    {
+        id: 7,
+        title: "Domestic Sanitizing",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
+        image: "/services/service-3.png",
+        icon: House,
+    },
+    {
+        id: 8,
         title: "Corona Control",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
         image: "/services/service-4.png",
@@ -133,7 +162,7 @@ function ServiceCard({ service, index }: ServiceCardProps) {
             {/* Image Wrapper */}
             <div className="relative w-full h-[220px]">
                 {/* Rounded Image with Padding */}
-                <div className="relative w-full h-full overflow-hidden rounded-[12px]">
+                <Link href="/services/detail" className="block relative w-full h-full overflow-hidden rounded-[12px]">
                     <Image
                         src={service.image}
                         alt={service.title}
@@ -141,7 +170,7 @@ function ServiceCard({ service, index }: ServiceCardProps) {
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                         sizes="(max-w-640px) 100vw, (max-w-1024px) 50vw, 25vw"
                     />
-                </div>
+                </Link>
                 
                 {/* Floating Icon Overlaid on Bottom Right Corner */}
                 <div className="absolute -bottom-6 right-4 z-10 w-[52px] h-[52px] rounded-full bg-[#0A7A51] text-white flex items-center justify-center border-[4px] border-[#EAF2EE] shadow-sm transition-transform duration-300 group-hover:bg-[#0B2942] group-hover:scale-110">
@@ -152,7 +181,7 @@ function ServiceCard({ service, index }: ServiceCardProps) {
             {/* Content */}
             <div className="mt-8 flex-1 flex flex-col text-left">
                 <h3 className="text-[22px] font-bold text-[#0B2942] leading-[1.3] group-hover:text-[#0A7A51] transition-colors duration-300 cursor-pointer">
-                    {service.title}
+                    <Link href="/services/detail">{service.title}</Link>
                 </h3>
                 
                 <p className="mt-3 text-[#6B7280] text-[15px] leading-[26px] flex-1">
@@ -161,9 +190,9 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 
                 {/* Read More Button (Solid Green Pill) */}
                 <div className="mt-6 text-left">
-                    <button className="bg-[#0A7A51] hover:bg-[#0B2942] text-white font-bold text-[14px] py-2.5 px-6 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer hover:scale-105 active:scale-95">
+                    <Link href="/services/detail" className="inline-block bg-[#0A7A51] hover:bg-[#0B2942] text-white font-bold text-[14px] py-2.5 px-6 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer hover:scale-105 active:scale-95">
                         Read More +
-                    </button>
+                    </Link>
                 </div>
             </div>
         </motion.div>

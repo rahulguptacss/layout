@@ -10,18 +10,26 @@ import {
     PhoneCall,
 } from "lucide-react";
 
-const navLinks = [
+type NavLink = {
+    title: string;
+    href: string;
+    dropdown?: boolean;
+    subLinks?: { title: string; href: string; }[];
+};
+
+const navLinks: NavLink[] = [
     { title: "Home", href: "/" },
     { title: "About Us", href: "/about" },
     { title: "Services", href: "/services" },
     { title: "Projects", href: "/projects" },
-    { title: "Pages", href: "#", dropdown: true },
+    { title: "Industries We Serve", href: "/industries" },
     { title: "Blog", href: "/blog" },
     { title: "Contact Us", href: "/contact" },
 ];
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [mobileDropdowns, setMobileDropdowns] = useState<Record<string, boolean>>({});
 
     return (
         <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -42,23 +50,32 @@ export default function Header() {
                     {/* Desktop Menu */}
                     <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
                         {navLinks.map((item) => (
-                            <Link
-                                key={item.title}
-                                href={item.href}
-                                className={`flex items-center gap-1 font-bold text-[15px] xl:text-base transition-colors relative group
-                                    ${item.title === 'Home' ? 'text-[#1FA463]' : 'text-[#0D2235] hover:text-[#1FA463]'}
-                                `}
-                            >
-                                {item.title}
+                            <div key={item.title} className="relative group h-20 flex items-center">
+                                <Link
+                                    href={item.href}
+                                    className={`flex items-center gap-1 font-bold text-[15px] xl:text-base transition-colors relative
+                                        ${item.title === 'Home' ? 'text-[#1FA463]' : 'text-[#0D2235] group-hover:text-[#1FA463]'}
+                                    `}
+                                >
+                                    {item.title}
 
-                                {item.dropdown && (
-                                    <ChevronDown size={16} className={`transition-colors ${item.title === 'Home' ? 'text-[#1FA463]' : 'text-[#0D2235] group-hover:text-[#1FA463]'}`} />
-                                )}
 
-                                {item.title === 'Home' && (
-                                    <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-[#1FA463]"></span>
+                                </Link>
+
+                                {item.dropdown && item.subLinks && (
+                                    <div className="absolute top-[80px] left-0 w-48 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-t-[3px] border-[#1FA463] py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                                        {item.subLinks.map((subItem) => (
+                                            <Link
+                                                key={subItem.title}
+                                                href={subItem.href}
+                                                className="block px-5 py-2.5 text-[15px] font-semibold text-[#0D2235] hover:text-[#1FA463] hover:bg-gray-50/50 transition-colors"
+                                            >
+                                                {subItem.title}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 )}
-                            </Link>
+                            </div>
                         ))}
                     </nav>
 
@@ -110,20 +127,43 @@ export default function Header() {
                 <div className="border-t border-gray-100 bg-white">
                     <nav className="flex flex-col p-5">
                         {navLinks.map((item) => (
-                            <Link
-                                key={item.title}
-                                href={item.href}
-                                className={`py-3 border-b border-gray-100 flex justify-between font-bold text-[15px]
-                                    ${item.title === 'Home' ? 'text-[#1FA463]' : 'text-[#0D2235]'}
-                                `}
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                {item.title}
+                            <div key={item.title} className="flex flex-col border-b border-gray-100">
+                                <Link
+                                    href={item.href}
+                                    className={`py-3 flex justify-between items-center font-bold text-[15px]
+                                        ${item.title === 'Home' ? 'text-[#1FA463]' : 'text-[#0D2235]'}
+                                    `}
+                                    onClick={(e) => {
+                                        if (item.dropdown) {
+                                            e.preventDefault();
+                                            setMobileDropdowns(prev => ({ ...prev, [item.title]: !prev[item.title] }));
+                                        } else {
+                                            setMenuOpen(false);
+                                        }
+                                    }}
+                                >
+                                    {item.title}
 
-                                {item.dropdown && (
-                                    <ChevronDown size={18} />
+                                    {item.dropdown && (
+                                        <ChevronDown size={18} className={`transition-transform duration-300 ${mobileDropdowns[item.title] ? 'rotate-180' : ''}`} />
+                                    )}
+                                </Link>
+
+                                {item.dropdown && item.subLinks && (
+                                    <div className={`overflow-hidden transition-all duration-300 flex flex-col pl-4 ${mobileDropdowns[item.title] ? 'max-h-[200px] pb-3' : 'max-h-0'}`}>
+                                        {item.subLinks.map((subItem) => (
+                                            <Link
+                                                key={subItem.title}
+                                                href={subItem.href}
+                                                className="py-2 text-[14px] font-semibold text-gray-600 hover:text-[#1FA463]"
+                                                onClick={() => setMenuOpen(false)}
+                                            >
+                                                {subItem.title}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 )}
-                            </Link>
+                            </div>
                         ))}
 
                         <div className="mt-6">
