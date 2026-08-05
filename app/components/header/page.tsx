@@ -26,9 +26,7 @@ export default function Header() {
     return (
         <header className="bg-white shadow-sm sticky top-0 z-50">
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
-
                 <div className="flex items-center justify-between h-20">
-
                     {/* Logo */}
                     <Link href="/">
                         <Image
@@ -37,66 +35,64 @@ export default function Header() {
                             width={180}
                             height={60}
                             priority
+                            className="object-contain"
                         />
                     </Link>
 
                     {/* Desktop Menu */}
-                    <nav className="hidden lg:flex items-center gap-8">
-
+                    <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
                         {navLinks.map((item) => (
                             <Link
                                 key={item.title}
                                 href={item.href}
-                                className="flex items-center gap-1 font-medium text-[#1E293B] hover:text-[#19A463] transition"
+                                className={`flex items-center gap-1 font-bold text-[15px] xl:text-base transition-colors relative group
+                                    ${item.title === 'Home' ? 'text-[#1FA463]' : 'text-[#0D2235] hover:text-[#1FA463]'}
+                                `}
                             >
                                 {item.title}
 
                                 {item.dropdown && (
-                                    <ChevronDown size={16} />
+                                    <ChevronDown size={16} className={`transition-colors ${item.title === 'Home' ? 'text-[#1FA463]' : 'text-[#0D2235] group-hover:text-[#1FA463]'}`} />
+                                )}
+
+                                {item.title === 'Home' && (
+                                    <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-[#1FA463]"></span>
                                 )}
                             </Link>
                         ))}
-
                     </nav>
 
                     {/* Right */}
-                    <div className="hidden lg:flex items-center gap-5">
-
+                    <div className="hidden lg:flex items-center gap-6">
                         <div className="flex items-center gap-3">
-
-                            <div className="w-12 h-12 rounded-full bg-[#EAF8EF] flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-[#EAF8EF] flex items-center justify-center shrink-0">
                                 <PhoneCall
-                                    size={22}
-                                    className="text-[#19A463]"
+                                    size={20}
+                                    className="text-[#1FA463]"
                                 />
                             </div>
-
-                            <div>
-                                <p className="text-sm text-gray-500">
+                            <div className="flex flex-col justify-center">
+                                <p className="text-[13px] text-gray-500 font-semibold leading-tight mb-0.5">
                                     Call Anytime
                                 </p>
-
                                 <a
                                     href="tel:+12545678900"
-                                    className="font-semibold"
+                                    className="font-extrabold text-[#0D2235] text-[15px] leading-tight"
                                 >
                                     +1 (254) 567-8900
                                 </a>
                             </div>
-
                         </div>
 
-                        <button className="bg-[#19A463] hover:bg-[#14894f] text-white px-7 h-12 rounded-full font-semibold transition">
+                        <button className="bg-[#1FA463] hover:bg-[#18804d] text-white px-7 py-3 rounded-full font-bold text-[15px] transition-colors shadow-sm">
                             Get a Quote
                         </button>
-
                     </div>
 
                     {/* Mobile Button */}
-
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="lg:hidden"
+                        className="lg:hidden text-[#0D2235]"
                     >
                         {menuOpen ? (
                             <X size={28} />
@@ -104,26 +100,22 @@ export default function Header() {
                             <Menu size={28} />
                         )}
                     </button>
-
                 </div>
-
             </div>
 
             {/* Mobile Menu */}
-
             <div
-                className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-[500px]" : "max-h-0"
-                    }`}
+                className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-[500px]" : "max-h-0"}`}
             >
-                <div className="border-t">
-
+                <div className="border-t border-gray-100 bg-white">
                     <nav className="flex flex-col p-5">
-
                         {navLinks.map((item) => (
                             <Link
                                 key={item.title}
                                 href={item.href}
-                                className="py-3 border-b flex justify-between"
+                                className={`py-3 border-b border-gray-100 flex justify-between font-bold text-[15px]
+                                    ${item.title === 'Home' ? 'text-[#1FA463]' : 'text-[#0D2235]'}
+                                `}
                                 onClick={() => setMenuOpen(false)}
                             >
                                 {item.title}
@@ -135,42 +127,29 @@ export default function Header() {
                         ))}
 
                         <div className="mt-6">
-
                             <div className="flex items-center gap-3 mb-5">
-
                                 <div className="w-10 h-10 rounded-full bg-[#EAF8EF] flex items-center justify-center">
                                     <PhoneCall
-                                        size={20}
-                                        className="text-[#19A463]"
+                                        size={18}
+                                        className="text-[#1FA463]"
                                     />
                                 </div>
-
                                 <div>
-
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-[13px] text-gray-500 font-semibold">
                                         Call Anytime
                                     </p>
-
-                                    <p className="font-semibold">
+                                    <p className="font-extrabold text-[#0D2235] text-[15px]">
                                         +1 (254) 567-8900
                                     </p>
-
                                 </div>
-
                             </div>
-
-                            <button className="w-full h-12 rounded-full bg-[#19A463] text-white font-semibold">
+                            <button className="w-full h-12 rounded-full bg-[#1FA463] hover:bg-[#18804d] text-white font-bold text-[15px] transition-colors">
                                 Get a Quote
                             </button>
-
                         </div>
-
                     </nav>
-
                 </div>
-
             </div>
-
         </header>
     );
 }

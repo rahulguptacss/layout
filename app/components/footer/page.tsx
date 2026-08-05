@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
     FaFacebookF as Facebook,
     FaLinkedinIn as Linkedin,
@@ -12,7 +13,7 @@ import {
 import {
     MapPin,
     Mail,
-    Phone,
+    Smartphone,
     ChevronRight,
 } from "lucide-react";
 
@@ -24,292 +25,176 @@ const links = [
     "Contact",
 ];
 
-import { Send } from "lucide-react";
+const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
 
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: "easeOut",
+        },
+    },
+};
 
 export default function Footer() {
     return (
-        <footer className="bg-[#262626] text-white pt-20">
-
-            <div className="max-w-[1320px] mx-auto px-5 lg:px-8">
-
+        <footer className="bg-[#262626] text-white pt-36 md:pt-44 overflow-hidden">
+            <div className="max-w-[1320px] mx-auto px-4 lg:px-8">
+                
                 {/* Footer Grid */}
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-
+                <motion.div 
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12"
+                >
+                    
                     {/* ================= COLUMN 1 ================= */}
-
-                    <div>
-
+                    <motion.div variants={itemVariants} className="lg:pr-6">
                         {/* Logo */}
-
-                        <Link href="/">
-                            <Image
+                        <Link href="/" className="inline-block -mt-6 mb-1">
+                            <img
                                 src="/logo/whitelogo.png"
                                 alt="CleanPro"
-                                width={180}
-                                height={60}
-                                priority
+                                className="w-[170px] h-auto object-contain"
                             />
                         </Link>
 
                         {/* Description */}
-
-                        <p className="text-[#C8C8C8] leading-8 mt-8">
-                            Lorem ipsum dolor sit amet, consectetur elit eiusmod tempor
-                            incididunt labore dolore magna aliqua consectetur adipiscing elit.
+                        <p className="text-[#C8C8C8] text-[15px] leading-[1.6] -mt-10 max-w-[280px]">
+                            Lorem ipsum dolor sit amet, consec tetur elit eiusmod tempor incididunt labore dolore magna aliqua consec tetur adipis cing elite sed do labor.
                         </p>
 
                         {/* Social */}
-
-                        <div className="mt-8">
-
-                            <h4 className="font-semibold text-lg">
-                                Follow Us :
-                            </h4>
-
-                            <div className="flex items-center gap-4 mt-5">
-
-                                <a
-                                    href="#"
-                                    className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-[#23A36D] hover:bg-[#23A36D] hover:text-white transition"
-                                >
-                                    <Facebook size={18} />
-                                </a>
-
-                                <a
-                                    href="#"
-                                    className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-[#23A36D] hover:bg-[#23A36D] hover:text-white transition"
-                                >
-                                    <Linkedin size={18} />
-                                </a>
-
-                                <a
-                                    href="#"
-                                    className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-[#23A36D] hover:bg-[#23A36D] hover:text-white transition"
-                                >
-                                    <Twitter size={18} />
-                                </a>
-
-                                <a
-                                    href="#"
-                                    className="w-11 h-11 rounded-full bg-white flex items-center justify-center text-[#23A36D] hover:bg-[#23A36D] hover:text-white transition"
-                                >
-                                    <Instagram size={18} />
-                                </a>
-
-                            </div>
-
+                        <div className="flex items-center gap-3 mt-6">
+                            <span className="font-bold text-white text-[15px] mr-2">
+                                Follow Us:
+                            </span>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                                <Facebook size={14} />
+                            </a>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                                <Linkedin size={14} />
+                            </a>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                                <Twitter size={14} />
+                            </a>
+                            <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                                <Instagram size={14} />
+                            </a>
                         </div>
-
-                    </div>
+                    </motion.div>
 
                     {/* ================= COLUMN 2 ================= */}
-
-                    <div>
-
-                        <h3 className="text-[28px] font-bold">
+                    <motion.div variants={itemVariants}>
+                        <h3 className="text-[22px] font-bold text-white">
                             Get In Touch
                         </h3>
-
-                        <div className="w-14 h-[3px] bg-[#22A46D] mt-3 mb-8"></div>
+                        <div className="w-10 h-[2px] bg-[#16A361] mt-3 mb-6"></div>
 
                         {/* Address */}
-
-                        <div className="flex gap-4 mb-8">
-
-                            <MapPin
-                                size={22}
-                                className="text-[#22A46D] mt-1 shrink-0"
-                            />
-
+                        <div className="flex gap-3 mb-5">
+                            <MapPin size={18} className="text-[#16A361] mt-[3px] shrink-0" />
                             <div>
-
-                                <h5 className="font-semibold text-lg">
-                                    Location:
-                                </h5>
-
-                                <p className="text-[#C8C8C8] mt-2 leading-7">
-                                    2976 Sunrise Avenue,
-                                    <br />
-                                    Las Vegas
+                                <h5 className="font-bold text-white text-[15px]">Location:</h5>
+                                <p className="text-[#C8C8C8] text-[14px] mt-[2px] leading-snug">
+                                    2976 Sunrise Avenue, Las Vegas
                                 </p>
-
                             </div>
-
                         </div>
 
                         {/* Email */}
-
-                        <div className="flex gap-4 mb-8">
-
-                            <Mail
-                                size={22}
-                                className="text-[#22A46D] mt-1 shrink-0"
-                            />
-
+                        <div className="flex gap-3 mb-5">
+                            <Mail size={18} className="text-[#16A361] mt-[3px] shrink-0" />
                             <div>
-
-                                <h5 className="font-semibold text-lg">
-                                    Email:
-                                </h5>
-
-                                <a
-                                    href="mailto:hello@anwa.com"
-                                    className="text-[#C8C8C8] mt-2 block hover:text-[#22A46D] transition"
-                                >
+                                <h5 className="font-bold text-white text-[15px]">Email:</h5>
+                                <a href="mailto:hello@anwa.com" className="text-[#C8C8C8] text-[14px] mt-[2px] block hover:text-[#16A361] transition">
                                     hello@anwa.com
                                 </a>
-
                             </div>
-
                         </div>
 
                         {/* Phone */}
-
-                        <div className="flex gap-4">
-
-                            <Phone
-                                size={22}
-                                className="text-[#22A46D] mt-1 shrink-0"
-                            />
-
+                        <div className="flex gap-3">
+                            <Smartphone size={18} className="text-[#16A361] mt-[3px] shrink-0" />
                             <div>
-
-                                <h5 className="font-semibold text-lg">
-                                    Phone:
-                                </h5>
-
-                                <a
-                                    href="tel:+13454567877"
-                                    className="text-[#C8C8C8] mt-2 block hover:text-[#22A46D] transition"
-                                >
+                                <h5 className="font-bold text-white text-[15px]">Phone:</h5>
+                                <a href="tel:+13454567877" className="text-[#C8C8C8] text-[14px] mt-[2px] block hover:text-[#16A361] transition">
                                     +1-3454-5678-77
                                 </a>
-
                             </div>
-
                         </div>
-
-                    </div>
+                    </motion.div>
 
                     {/* ================= COLUMN 3 ================= */}
-
-                    <div>
-
-                        <h3 className="text-[28px] font-bold">
+                    <motion.div variants={itemVariants} className="lg:pl-4">
+                        <h3 className="text-[22px] font-bold text-white">
                             Quick Links
                         </h3>
+                        <div className="w-10 h-[2px] bg-[#16A361] mt-3 mb-6"></div>
 
-                        <div className="w-14 h-[3px] bg-[#22A46D] mt-3 mb-8"></div>
-
-                        <ul className="space-y-5">
-
+                        <ul className="space-y-4">
                             {links.map((item) => (
-
                                 <li key={item}>
-
-                                    <a
-                                        href="#"
-                                        className="flex items-center gap-3 text-[#C8C8C8] hover:text-[#22A46D] transition"
-                                    >
-
-                                        <ChevronRight size={18} />
-
-                                        <span className="text-lg">
-                                            {item}
-                                        </span>
-
+                                    <a href="#" className="flex items-center gap-3 text-[#C8C8C8] text-[15px] hover:text-[#16A361] transition">
+                                        <ChevronRight size={16} className="text-[#16A361]" />
+                                        <span>{item}</span>
                                     </a>
-
                                 </li>
-
                             ))}
-
                         </ul>
-
-                    </div>
+                    </motion.div>
 
                     {/* ================= COLUMN 4 ================= */}
-
-                    <div>
-
-                        <h3 className="text-[28px] font-bold text-white">
+                    <motion.div variants={itemVariants}>
+                        <h3 className="text-[22px] font-bold text-white">
                             Subscribe
                         </h3>
+                        <div className="w-10 h-[2px] bg-[#16A361] mt-3 mb-6"></div>
 
-                        <div className="w-14 h-[3px] bg-[#22A46D] mt-3 mb-8"></div>
-
-                        <p className="text-[#C8C8C8] leading-8 mb-8">
-                            Subscribe To Our Newsletter To Get
-                            Our Update News!
+                        <p className="text-[#E5E5E5] text-[15px] leading-relaxed mb-6 max-w-[280px]">
+                            Subscribe To Our Newsletter To Get Our Update News!
                         </p>
 
-                        {/* Email */}
-
-                        <div className="relative">
-
+                        <div className="max-w-[280px]">
                             <input
                                 type="email"
                                 placeholder="Your email address"
-                                className="w-full h-[58px] rounded-full px-6 pr-14 outline-none text-[#333] bg-white"
+                                className="w-full h-[48px] rounded-full px-6 outline-none text-[15px] text-[#333] bg-white"
                             />
-
-                            <Send
-                                size={18}
-                                className="absolute right-6 top-1/2 -translate-y-1/2 text-[#22A46D]"
-                            />
-
+                            <button className="mt-4 w-full h-[48px] rounded-full bg-[#16A361] hover:bg-[#128a51] transition font-bold text-white text-[16px]">
+                                Subscribe
+                            </button>
                         </div>
+                    </motion.div>
+                </motion.div>
 
-                        {/* Button */}
-
-                        <button
-                            className="
-      mt-6
-      w-full
-      h-[56px]
-      rounded-full
-      bg-[#22A46D]
-      hover:bg-[#188353]
-      transition
-      font-semibold
-      text-white
-    "
-                        >
-                            Subscribe
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <div className="border-t border-white/10 mt-16">
-
-                    <div className="py-7 flex flex-col md:flex-row justify-between items-center gap-4">
-
-                        <p className="text-[#BEBEBE] text-center md:text-left">
-                            Copyright ©2026.
-                            <span className="text-white font-semibold">
-                                {" "}CleanPro{" "}
-                            </span>
-                            All Rights Reserved By
-                            <span className="text-[#22A46D] font-semibold">
-                                {" "}Cssfounder
-                            </span>
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.6 }}
+                    className="border-t border-[#3a3a3a] mt-12"
+                >
+                    <div className="py-6 flex justify-center text-center">
+                        <p className="text-[#999] text-[15px]">
+                            Copyright ©2026. <span className="text-white font-bold">CleanPro</span> All Rights Reserved By <span className="text-[#16A361] font-bold">Cssfounder</span>
                         </p>
-
-                        <div className="flex gap-6">
-                            <a href="#">Privacy</a>
-                            <a href="#">Terms</a>
-                        </div>
-
                     </div>
-
-                </div>
-
+                </motion.div>
             </div>
-
         </footer>
     );
 }

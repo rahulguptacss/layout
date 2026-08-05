@@ -51,7 +51,7 @@ const partners = [
 
 export default function PartnersSection() {
     return (
-        <section className="relative bg-white py-24 overflow-hidden">
+        <section className="relative bg-white py-10 lg:py-12 overflow-hidden">
             
             {/* Background Wavy Mesh - Left Side */}
             <div className="absolute top-0 left-0 w-[50%] h-full opacity-60 pointer-events-none">
@@ -102,11 +102,11 @@ export default function PartnersSection() {
                         viewport={{ once: true }}
                         className="flex items-center justify-center gap-4 mb-4"
                     >
-                        <div className="w-8 h-[2px] bg-red-500"></div>
-                        <span className="text-red-500 font-bold text-[12px] tracking-[0.15em] uppercase">
+                        <div className="w-8 h-[2px] bg-[#E73C3E]"></div>
+                        <span className="text-[#E73C3E] font-bold text-[12px] tracking-[0.15em] uppercase">
                             Trusted By
                         </span>
-                        <div className="w-8 h-[2px] bg-red-500"></div>
+                        <div className="w-8 h-[2px] bg-[#E73C3E]"></div>
                     </motion.div>
 
                     <motion.h2 
@@ -114,7 +114,7 @@ export default function PartnersSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#0B2942] text-[42px] md:text-[46px] font-extrabold leading-[1.2] tracking-tight mb-4"
+                        className="text-[#0D2235] text-[42px] md:text-[46px] font-extrabold leading-[1.2] tracking-tight mb-4"
                     >
                         Leading Brands & Partners
                     </motion.h2>
@@ -142,12 +142,12 @@ export default function PartnersSection() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
                                 whileHover={{ y: -5 }}
-                                className="group relative bg-white rounded-[12px] px-5 py-4 flex items-center justify-center gap-3 cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300"
+                                className="group relative bg-white border border-gray-100 rounded-[12px] px-5 py-4 flex items-center justify-center gap-3 cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300"
                                 style={{ borderBottom: `3.5px solid ${partner.color}` }}
                             >
-                                <Icon size={44} strokeWidth={1.5} style={{ color: partner.color }} className="transition-transform duration-300 group-hover:scale-110" />
+                                <Icon size={44} strokeWidth={1.5} style={{ color: partner.color }} className="transition-transform duration-300 group-hover:scale-110 shrink-0" />
                                 <div className="flex flex-col text-left">
-                                    <span className="font-extrabold text-[#1F2937] text-[16px] leading-tight group-hover:text-black transition-colors duration-300">
+                                    <span className="font-extrabold text-[#0D2235] text-[16px] leading-tight group-hover:text-black transition-colors duration-300">
                                         {partner.name}
                                     </span>
                                     <span 
