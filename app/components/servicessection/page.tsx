@@ -105,7 +105,7 @@ interface ServicesSectionProps {
 
 export default function ServicesSection({ layout = 'grid' }: ServicesSectionProps) {
     return (
-        <section className={`${layout === 'slider' ? 'pt-8 pb-4 md:pt-10 md:pb-6' : 'pt-10 pb-16 md:pt-14 md:pb-20'} bg-white`}>
+        <section className={`${layout === 'slider' ? 'pt-8 pb-4 md:pt-10 md:pb-6 bg-[#F8F9FA]' : 'pt-10 pb-16 md:pt-14 md:pb-20 bg-white'}`}>
             {layout === 'slider' && (
                 <style jsx global>{`
                     .services-slider .swiper-pagination-bullet-active {
