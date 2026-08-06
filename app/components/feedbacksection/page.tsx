@@ -91,7 +91,7 @@ export default function FeedbackSection() {
     const displayFeedbacks = Array(15).fill(feedbacks).flat();
 
     return (
-        <section className="bg-[#F8F9FA] py-14 md:py-16 overflow-hidden relative">
+        <section className="bg-[#F8F9FA] pt-8 pb-6 md:pt-10 md:pb-8 overflow-hidden relative">
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
                 
                 {/* Header */}
@@ -100,10 +100,9 @@ export default function FeedbackSection() {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="flex items-center justify-center gap-2 mb-3"
                     >
-                        <span className="text-[#138A56] font-bold text-[14px] md:text-[15px] tracking-wide">
-                            - - Customer Feedback - -
+                        <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
+                            Customer Feedback
                         </span>
                     </motion.div>
                     <motion.h2 
@@ -111,7 +110,7 @@ export default function FeedbackSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#0D2235] text-[28px] sm:text-[32px] md:text-[44px] font-extrabold leading-[1.25] md:leading-[1.2] tracking-tight px-2 md:px-0"
+                        className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight"
                     >
                         Quality Cleaning Making<br/>you Much Happy
                     </motion.h2>

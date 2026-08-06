@@ -39,7 +39,7 @@ const awards = [
 
 export default function AwardsSection() {
     return (
-        <section className="py-20 md:py-24 bg-[#F5FAED] relative overflow-hidden z-0">
+        <section className="pt-8 pb-14 md:pt-10 md:pb-16 bg-[#F5FAED] relative overflow-hidden z-0">
             {/* Background elements */}
             <div className="absolute top-0 right-0 opacity-40 mix-blend-multiply w-1/3 h-[400px] pointer-events-none -z-10 bg-[#e7f5d3] rounded-bl-[100%] blur-3xl"></div>
             {/* Left background shape approximation */}
@@ -47,7 +47,7 @@ export default function AwardsSection() {
 
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6 relative z-10">
                 {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
                     <motion.div 
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export default function AwardsSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#2A2A2A] text-[42px] md:text-[56px] font-black tracking-tight leading-[1.1] mb-6"
+                        className="text-[#2A2A2A] text-[32px] md:text-[44px] font-semibold tracking-tight leading-[1.2] mb-6"
                     >
                         Awards & <span className="text-[#398E3D]">Certifications</span>
                     </motion.h2>

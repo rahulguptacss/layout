@@ -73,7 +73,7 @@ export default function ProjectSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-white text-[38px] md:text-[46px] lg:text-[48px] font-extrabold leading-[1.15] tracking-tight"
+                            className="text-white text-[38px] md:text-[46px] lg:text-[48px] font-semibold leading-[1.15] tracking-tight"
                         >
                             Let's See Our Recent Project Case
                         </motion.h2>

@@ -51,11 +51,11 @@ const pricingPlans = [
 
 export default function PricingSection() {
     return (
-        <section className="py-20 md:py-28 bg-white relative">
+        <section className="pt-8 pb-14 md:pt-10 md:pb-16 bg-white relative">
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
                 
                 {/* Header */}
-                <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+                <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
                     <motion.div 
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export default function PricingSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#0D2235] text-[32px] md:text-[44px] font-extrabold leading-[1.2] tracking-tight"
+                        className="text-[#0D2235] text-[32px] md:text-[44px] font-semibold leading-[1.2] tracking-tight"
                     >
                         Simple Plan For Everyone
                     </motion.h2>

@@ -16,7 +16,7 @@ function About() {
             <PageBanner title="About" breadcrumb="About" />
             <AboutSection />
             <WorkProcess />
-            <TeamSection />
+            <TeamSection layout="slider" />
             <FeedbackSection />
             <AchievementSection />
             <CalculateCTA />

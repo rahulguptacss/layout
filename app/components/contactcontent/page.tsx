@@ -17,11 +17,11 @@ export default function ContactContent() {
     return (
         <>
             {/* Top Section: Location Cards */}
-            <section className="py-20 lg:py-24 bg-white">
+            <section className="pt-8 pb-14 md:pt-10 md:pb-16 bg-white">
                 <div className="max-w-[1140px] mx-auto px-4 lg:px-6">
-                <div className="text-center mb-16">
-                    <h5 className="text-[#1FA463] text-[15px] font-bold mb-3">Contact Information</h5>
-                    <h2 className="text-[#0D2235] text-[36px] md:text-[42px] font-extrabold max-w-2xl mx-auto leading-tight">
+                <div className="text-center mb-10 md:mb-12">
+                    <h5 className="text-[#1FA463] text-[14px] font-bold tracking-widest uppercase mb-3">Contact Information</h5>
+                    <h2 className="text-[#0D2235] text-[32px] md:text-[44px] font-semibold max-w-2xl mx-auto leading-tight">
                         We Want To Share Our Location To Find Us Easily
                     </h2>
                 </div>
@@ -84,7 +84,7 @@ export default function ContactContent() {
         </section>
 
         {/* Bottom Section: Form */}
-        <section className="py-20 lg:py-24 bg-[#F4F9F7]">
+        <section className="pt-8 pb-14 md:pt-10 md:pb-16 bg-[#F4F9F7]">
             <div className="max-w-[1140px] mx-auto px-4 lg:px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -95,8 +95,8 @@ export default function ContactContent() {
                         viewport={{ once: true }}
                         className="lg:pr-10"
                     >
-                        <h5 className="text-[#1FA463] text-[15px] font-bold mb-4">Contact Form</h5>
-                        <h2 className="text-[#0D2235] text-[36px] md:text-[44px] font-extrabold leading-[1.1] mb-10">
+                        <h5 className="text-[#1FA463] text-[14px] font-bold tracking-widest uppercase mb-4">Contact Form</h5>
+                        <h2 className="text-[#0D2235] text-[32px] md:text-[44px] font-semibold leading-[1.2] mb-10">
                             Cool Project? Get in Touch! Will Contact You Soon
                         </h2>
 

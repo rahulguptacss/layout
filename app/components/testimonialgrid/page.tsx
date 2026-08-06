@@ -39,11 +39,11 @@ const testimonials = [
 
 export default function TestimonialGrid() {
     return (
-        <section className="py-14 md:py-16 bg-white relative">
+        <section className="pt-8 pb-14 md:pt-10 md:pb-16 bg-white relative">
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
                 
                 {/* Header */}
-                <div className="text-center max-w-2xl mx-auto mb-12">
+                <div className="text-center max-w-2xl mx-auto mb-8">
                     <motion.div 
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export default function TestimonialGrid() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#0D2235] text-[32px] md:text-[44px] font-extrabold leading-[1.2] tracking-tight relative inline-block"
+                        className="text-[#0D2235] text-[32px] md:text-[44px] font-semibold leading-[1.2] tracking-tight relative inline-block"
                     >
                         What Our Clients Says
                         {/* Swirly underline simulation */}

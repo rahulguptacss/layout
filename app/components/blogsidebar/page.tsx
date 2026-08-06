@@ -11,17 +11,17 @@ export default function BlogSidebar() {
                 <input
                     type="text"
                     placeholder="Search"
-                    className="w-full bg-[#F8F9FA] rounded-md py-4 px-5 pr-12 text-[14px] text-gray-600 focus:outline-none focus:ring-1 focus:ring-[#1FA463] transition-colors placeholder:text-gray-400"
+                    className="w-full bg-[#F5F5F5] rounded-xl py-4 px-6 pr-12 text-[15px] text-[#333333] focus:outline-none focus:ring-1 focus:ring-[#00B074] transition-colors placeholder:text-[#777777]"
                 />
-                <button className="absolute right-0 top-0 bottom-0 px-5 text-[#1FA463] hover:text-[#0B4F2F] transition-colors flex items-center justify-center">
+                <button className="absolute right-0 top-0 bottom-0 px-5 text-[#00B074] hover:text-[#054C34] transition-colors flex items-center justify-center">
                     <Search size={18} strokeWidth={2} />
                 </button>
             </div>
 
             {/* Recent News Widget */}
             <div>
-                <h4 className="text-[#0B4F2F] text-[20px] font-extrabold mb-3">Recent News</h4>
-                <div className="w-[40px] h-[2px] bg-[#1FA463] mb-6"></div>
+                <h4 className="text-[#024933] text-[24px] font-bold mb-1">Recent News</h4>
+                <div className="w-[45px] h-[2px] bg-[#00A562] mb-8"></div>
                 
                 <div className="space-y-6">
                     {[
@@ -46,10 +46,10 @@ export default function BlogSidebar() {
                                 <img src={post.img} alt={post.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
                             </div>
                             <div className="flex-1 pt-1">
-                                <h5 className="text-[#1FA463] text-[14px] font-bold leading-[1.4] mb-1 group-hover:text-[#0B4F2F] transition-colors">
+                                <h5 className="text-[#00A562] text-[16px] font-bold leading-[1.3] mb-1.5 group-hover:text-[#024933] transition-colors">
                                     {post.title}
                                 </h5>
-                                <span className="text-[#555555] text-[12px] block">
+                                <span className="text-[#055C41] text-[13px] block">
                                     {post.date}
                                 </span>
                             </div>

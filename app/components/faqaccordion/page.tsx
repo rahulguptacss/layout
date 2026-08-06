@@ -56,7 +56,7 @@ export default function FaqAccordion() {
     };
 
     return (
-        <section className="bg-[#F8F9FA] py-16 md:py-24">
+        <section className="bg-[#F8F9FA] pt-8 pb-14 md:pt-10 md:pb-16">
             <div className="max-w-[900px] mx-auto px-4 lg:px-6">
                 <div className="space-y-4">
                     {faqs.map((faq, index) => {
@@ -70,7 +70,7 @@ export default function FaqAccordion() {
                                     onClick={() => toggleAccordion(index)}
                                     className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none group"
                                 >
-                                    <h4 className={`text-[16px] md:text-[17px] font-bold transition-colors duration-300 ${isOpen ? 'text-[#0D2235]' : 'text-[#0D2235] group-hover:text-[#1FA463]'}`}>
+                                    <h4 className={`text-[16px] md:text-[17px] font-semibold transition-colors duration-300 ${isOpen ? 'text-[#0D2235]' : 'text-[#0D2235] group-hover:text-[#1FA463]'}`}>
                                         {faq.question}
                                     </h4>
                                     

@@ -15,11 +15,11 @@ export default function BlogDetail() {
             <PageBanner title="Blog Detail" breadcrumb="Blog Detail" />
 
             <section className="py-20 bg-white">
-                <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
-                    <div className="flex flex-col lg:flex-row gap-10">
+                <div className="max-w-[1200px] mx-auto px-5 lg:px-8 xl:px-12">
+                    <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
 
                         {/* Main Content */}
-                        <div className="lg:w-[68%]">
+                        <div className="lg:w-[65%]">
                             {/* Hero Image */}
                             <div className="mb-6 rounded-sm overflow-hidden">
                                 <img
@@ -30,23 +30,22 @@ export default function BlogDetail() {
                             </div>
 
                             {/* Meta Info */}
-                            <div className="flex flex-wrap items-center gap-6 mb-8 border-b border-gray-100 pb-4">
-                                <div className="flex items-center gap-2 text-[#555555] text-[13px] font-medium">
-                                    <Calendar size={14} className="text-[#555555]" />
+                            <div className="flex flex-wrap items-center gap-5 mb-6 pt-4">
+                                <div className="flex items-center gap-2 text-[#4A4A4A] text-[14px]">
+                                    <Calendar size={16} className="text-[#00A562]" />
                                     January 15, 2021
                                 </div>
-                                <div className="flex items-center gap-2 text-[#555555] text-[13px] font-medium">
-                                    <User size={14} className="text-[#555555]" />
+                                <div className="flex items-center gap-2 text-[#4A4A4A] text-[14px]">
+                                    <User size={16} className="text-[#00A562]" />
                                     Klenar
                                 </div>
-                                <div className="flex items-center gap-2 text-[#555555] text-[13px] font-medium">
-                                    <MessageSquare size={14} className="text-[#555555]" />
+                                <div className="flex items-center gap-2 text-[#4A4A4A] text-[14px]">
+                                    <MessageSquare size={16} className="text-[#00A562]" />
                                     No Comments
                                 </div>
                             </div>
 
-                            {/* Main Title */}
-                            <h2 className="text-[#0B4F2F] text-[28px] md:text-[30px] font-extrabold mb-6 leading-[1.25]">
+                            <h2 className="text-[#024933] text-[28px] md:text-[34px] font-bold leading-[1.3] mb-6">
                                 Businesses Are Thriving, Societies Are Not. Time for Urgent Change
                             </h2>
 
@@ -93,7 +92,7 @@ export default function BlogDetail() {
                         </div>
 
                         {/* Sidebar */}
-                        <div className="lg:w-[32%]">
+                        <div className="lg:w-[35%]">
                             <BlogSidebar />
                         </div>
 

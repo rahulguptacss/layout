@@ -21,11 +21,11 @@ const jobOpenings = [
 
 export default function CareerContent() {
     return (
-        <section className="py-20 md:py-24 bg-white">
+        <section className="pt-8 pb-14 md:pt-10 md:pb-16 bg-white">
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
                 
                 {/* Hero Section */}
-                <div className="text-center max-w-4xl mx-auto mb-16">
+                <div className="text-center max-w-4xl mx-auto mb-10 md:mb-12">
                     <motion.div 
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export default function CareerContent() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#222222] text-[36px] md:text-[50px] font-black leading-[1.2] mb-6"
+                        className="text-[#222222] text-[32px] md:text-[44px] font-semibold leading-[1.2] mb-6"
                     >
                         Build Your Career with <span className="text-[#1FA463]">CleanPro</span>
                     </motion.h2>
@@ -139,32 +139,32 @@ export default function CareerContent() {
                             <h3 className="text-[#222222] text-[26px] font-extrabold mb-2">Current Openings</h3>
                             <p className="text-[#666666] text-[15px] mb-6">Find the right opportunity and grow your career with us.</p>
                             
-                            <div className="space-y-3">
+                            <div className="space-y-2.5">
                                 {jobOpenings.map((job, idx) => (
-                                    <div key={idx} className="border border-[#EAEAEA] rounded-md py-3 px-4 flex items-center justify-between hover:border-[#1FA463]/40 hover:shadow-sm transition-all duration-300 cursor-pointer group bg-white">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-[46px] h-[46px] rounded-lg bg-[#EAF5EB] flex items-center justify-center shrink-0">
+                                    <div key={idx} className="border border-[#EAEAEA] rounded-md py-2.5 px-4 flex items-center justify-between hover:border-[#1FA463] hover:shadow-sm transition-all duration-300 cursor-pointer group bg-white">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-[38px] h-[38px] rounded-lg bg-[#EAF5EB] flex items-center justify-center shrink-0">
                                                 {job.icon}
                                             </div>
                                             <div>
-                                                <h4 className="text-[#222222] text-[15px] font-extrabold mb-1 group-hover:text-[#1FA463] transition-colors">{job.title}</h4>
-                                                <div className="flex items-center gap-1.5 text-[#666666] text-[13px]">
-                                                    <MapPin size={14} className="text-[#1FA463]" strokeWidth={2} />
+                                                <h4 className="text-[#222222] text-[14px] font-bold mb-0.5 group-hover:text-[#1FA463] transition-colors">{job.title}</h4>
+                                                <div className="flex items-center gap-1 text-[#666666] text-[11px]">
+                                                    <MapPin size={12} className="text-[#1FA463]" strokeWidth={2} />
                                                     {job.location}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4">
-                                            <span className="text-[12px] font-bold px-3 py-1.5 rounded-full bg-[#EAF5EB] text-[#1FA463]">
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#EAF5EB] text-[#1FA463]">
                                                 {job.type}
                                             </span>
-                                            <ChevronRight size={18} className="text-[#1FA463]" strokeWidth={2.5} />
+                                            <ChevronRight size={16} className="text-[#1FA463]" strokeWidth={2.5} />
                                         </div>
                                     </div>
                                 ))}
                             </div>
 
-                            <button className="mt-5 border-2 border-[#1FA463] text-[#1FA463] bg-white hover:bg-[#1FA463] hover:text-white px-6 py-2 rounded-md font-bold transition-colors text-[14px]">
+                            <button className="mt-3 border-2 border-[#1FA463] text-[#1FA463] bg-white hover:bg-[#1FA463] hover:text-white px-4 py-1.5 rounded-md font-bold transition-colors text-[12px]">
                                 View All Openings
                             </button>
                         </motion.div>
@@ -176,30 +176,30 @@ export default function CareerContent() {
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="bg-white border border-[#EAEAEA] shadow-[0_5px_30px_rgba(0,0,0,0.02)] rounded-xl p-6 lg:p-8"
+                            className="bg-white border border-[#EAEAEA] shadow-[0_5px_30px_rgba(0,0,0,0.02)] rounded-xl p-4 lg:p-5"
                         >
-                            <h3 className="text-[#222222] text-[26px] font-extrabold mb-2">Apply for a Position</h3>
-                            <p className="text-[#666666] mb-6 text-[15px]">Fill out the form below and our HR team will get back to you.</p>
+                            <h3 className="text-[#222222] text-[22px] font-extrabold mb-1">Apply for a Position</h3>
+                            <p className="text-[#666666] mb-4 text-[13px]">Fill out the form below and our HR team will get back to you.</p>
                             
-                            <form className="space-y-5">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <form className="space-y-2.5">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                                     <div>
-                                        <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Full Name <span className="text-red-500">*</span></label>
-                                        <input type="text" placeholder="Enter your full name" className="w-full h-[46px] px-4 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[14px] text-[#666666] placeholder:text-[#999999]" />
+                                        <label className="block text-[11px] font-bold text-[#333333] mb-1">Full Name <span className="text-red-500">*</span></label>
+                                        <input type="text" placeholder="Enter your full name" className="w-full h-[36px] px-3 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[12px] text-[#666666] placeholder:text-[#999999]" />
                                     </div>
                                     <div>
-                                        <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Email Address <span className="text-red-500">*</span></label>
-                                        <input type="email" placeholder="Enter your email" className="w-full h-[46px] px-4 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[14px] text-[#666666] placeholder:text-[#999999]" />
+                                        <label className="block text-[11px] font-bold text-[#333333] mb-1">Email Address <span className="text-red-500">*</span></label>
+                                        <input type="email" placeholder="Enter your email" className="w-full h-[36px] px-3 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[12px] text-[#666666] placeholder:text-[#999999]" />
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                                     <div>
-                                        <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Phone Number <span className="text-red-500">*</span></label>
-                                        <input type="tel" placeholder="Enter your phone number" onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }} className="w-full h-[46px] px-4 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[14px] text-[#666666] placeholder:text-[#999999]" />
+                                        <label className="block text-[11px] font-bold text-[#333333] mb-1">Phone Number <span className="text-red-500">*</span></label>
+                                        <input type="tel" placeholder="Enter your phone number" onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }} className="w-full h-[36px] px-3 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[12px] text-[#666666] placeholder:text-[#999999]" />
                                     </div>
                                     <div>
-                                        <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Position Applying For <span className="text-red-500">*</span></label>
-                                        <select className="w-full h-[46px] px-4 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[14px] text-[#666666]">
+                                        <label className="block text-[11px] font-bold text-[#333333] mb-1">Position Applying For <span className="text-red-500">*</span></label>
+                                        <select className="w-full h-[36px] px-3 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[12px] text-[#666666]">
                                             <option>Select Position</option>
                                             <option>Housekeeping Staff</option>
                                             <option>Cleaning Supervisor</option>
@@ -208,8 +208,8 @@ export default function CareerContent() {
                                 </div>
                                 
                                 <div>
-                                    <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Experience <span className="text-red-500">*</span></label>
-                                    <select className="w-full h-[46px] px-4 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[14px] text-[#666666]">
+                                    <label className="block text-[11px] font-bold text-[#333333] mb-1">Experience <span className="text-red-500">*</span></label>
+                                    <select className="w-full h-[36px] px-3 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[12px] text-[#666666]">
                                         <option>Select Experience</option>
                                         <option>0-1 Years</option>
                                         <option>1-3 Years</option>
@@ -218,20 +218,20 @@ export default function CareerContent() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Upload Resume <span className="text-red-500">*</span></label>
-                                    <div className="w-full h-[46px] px-2 rounded-md border border-[#EAEAEA] bg-white flex items-center gap-3 overflow-hidden">
-                                        <button type="button" className="bg-[#F5F5F5] text-[#333333] px-3 py-1.5 text-[13px] font-bold rounded border border-[#DDDDDD] hover:bg-gray-200 transition-colors">Choose File</button>
-                                        <span className="text-[#666666] text-[13px]">No file chosen</span>
+                                    <label className="block text-[11px] font-bold text-[#333333] mb-1">Upload Resume <span className="text-red-500">*</span></label>
+                                    <div className="w-full h-[36px] px-2 rounded-md border border-[#EAEAEA] bg-white flex items-center gap-2 overflow-hidden">
+                                        <button type="button" className="bg-[#F5F5F5] text-[#333333] px-2.5 py-1 text-[11px] font-bold rounded border border-[#DDDDDD] hover:bg-gray-200 transition-colors">Choose File</button>
+                                        <span className="text-[#666666] text-[11px]">No file chosen</span>
                                     </div>
-                                    <p className="text-[12px] text-[#888888] mt-1.5 font-medium">PDF, DOC, DOCX (Max. 5MB)</p>
+                                    <p className="text-[10px] text-[#888888] mt-1 font-medium">PDF, DOC, DOCX (Max. 5MB)</p>
                                 </div>
 
                                 <div>
-                                    <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Additional Message</label>
-                                    <textarea placeholder="Write your message here..." rows={3} className="w-full p-4 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[14px] text-[#666666] placeholder:text-[#999999] resize-none"></textarea>
+                                    <label className="block text-[11px] font-bold text-[#333333] mb-1">Additional Message</label>
+                                    <textarea placeholder="Write your message here..." rows={3} className="w-full py-2 px-3 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[12px] text-[#666666] placeholder:text-[#999999] resize-none"></textarea>
                                 </div>
 
-                                <button type="button" className="w-full bg-[#1FA463] hover:bg-[#18804d] text-white py-3 rounded-md font-extrabold transition-colors text-[15px]">
+                                <button type="button" className="w-full bg-[#1FA463] hover:bg-[#18804d] text-white py-2 rounded-md font-extrabold transition-colors text-[12px]">
                                     Submit Application
                                 </button>
                             </form>

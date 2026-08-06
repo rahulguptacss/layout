@@ -53,7 +53,7 @@ interface NewsSectionProps {
 
 export default function NewsSection({ limit = 6, layout = 'grid' }: NewsSectionProps) {
     return (
-        <section className={`${layout === 'slider' ? 'bg-white pb-4 md:pb-6' : 'bg-[#F8F9FA] pb-16 md:pb-24'} pt-8 md:pt-12 overflow-hidden relative`}>
+        <section className={`${layout === 'slider' ? 'bg-white pt-4 pb-4 md:pt-6 md:pb-6' : 'bg-[#F8F9FA] pt-6 pb-12 md:pt-8 md:pb-16'} overflow-hidden relative`}>
             {layout === 'slider' && (
                 <style jsx global>{`
                     .news-slider .swiper-pagination-bullet-active {
@@ -68,14 +68,13 @@ export default function NewsSection({ limit = 6, layout = 'grid' }: NewsSectionP
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
                 
                 {/* Header */}
-                <div className="text-center max-w-2xl mx-auto mb-14">
+                <div className="text-center max-w-2xl mx-auto mb-8">
                     <motion.div 
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="mb-2"
                     >
-                        <span className="text-[#1FA463] font-bold text-[14px] tracking-wide block mb-3">
+                        <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
                             News
                         </span>
                     </motion.div>
@@ -84,7 +83,7 @@ export default function NewsSection({ limit = 6, layout = 'grid' }: NewsSectionP
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#0D2235] text-[32px] md:text-[44px] font-extrabold leading-[1.2] tracking-tight"
+                        className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight"
                     >
                         Our Latest News
                     </motion.h2>

@@ -27,7 +27,7 @@ export default function CalculateCTASection() {
                                 Your Cleaning Cost
                             </span>
                         </div>
-                        <h2 className="text-[#1A1A1A] text-[36px] md:text-[40px] font-extrabold leading-none tracking-tight">
+                        <h2 className="text-[#1A1A1A] text-[36px] md:text-[40px] font-semibold leading-none tracking-tight">
                             Calculate
                         </h2>
                     </div>

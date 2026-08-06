@@ -72,10 +72,10 @@ export default function AchievementSection() {
                                 {/* Content */}
                                 <div className="mt-1">
                                     <div className="flex items-baseline gap-2 mb-1.5">
-                                        <h3 className="text-[#138A56] text-[42px] lg:text-[48px] font-bold font-serif leading-none tracking-tight">
+                                        <h3 className="text-[#138A56] text-[42px] lg:text-[48px] font-extrabold leading-none tracking-tight">
                                             <Counter value={item.value} />
                                         </h3>
-                                        <span className="text-[#138A56] text-[18px] lg:text-[22px] font-bold font-serif">
+                                        <span className="text-[#138A56] text-[18px] lg:text-[22px] font-semibold">
                                             {item.title}
                                         </span>
                                     </div>

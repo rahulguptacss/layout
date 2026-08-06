@@ -105,7 +105,7 @@ interface ServicesSectionProps {
 
 export default function ServicesSection({ layout = 'grid' }: ServicesSectionProps) {
     return (
-        <section className="py-20 bg-[#F8F9FA]">
+        <section className={`${layout === 'slider' ? 'pt-8 pb-4 md:pt-10 md:pb-6' : 'pt-10 pb-16 md:pt-14 md:pb-20'} bg-white`}>
             {layout === 'slider' && (
                 <style jsx global>{`
                     .services-slider .swiper-pagination-bullet-active {
@@ -122,7 +122,7 @@ export default function ServicesSection({ layout = 'grid' }: ServicesSectionProp
                 <SectionHeader />
 
                 {layout === 'slider' ? (
-                    <div className="mt-14 services-slider">
+                    <div className="mt-8 md:mt-10 services-slider">
                         <Swiper
                             modules={[Navigation, Pagination, Autoplay]}
                             spaceBetween={28}
@@ -134,7 +134,7 @@ export default function ServicesSection({ layout = 'grid' }: ServicesSectionProp
                                 1024: { slidesPerView: 3 },
                                 1280: { slidesPerView: 4 },
                             }}
-                            className="!pb-16 !px-2"
+                            className="!pb-10 !px-2"
                         >
                             {services.map((service, index) => (
                                 <SwiperSlide key={service.id}>
@@ -147,7 +147,7 @@ export default function ServicesSection({ layout = 'grid' }: ServicesSectionProp
                         </Swiper>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-14">
+                    <div className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
                         {services.map((service, index) => (
                             <ServiceCard
                                 key={service.id}
@@ -173,7 +173,7 @@ function SectionHeader() {
                 Our Services
             </span>
 
-            <h2 className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-extrabold leading-tight tracking-tight">
+            <h2 className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight">
                 Commercial Disinfection Services
             </h2>
         </div>

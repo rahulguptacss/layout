@@ -83,12 +83,12 @@ export default function AboutSection() {
                     {/* ================= RIGHT (Content Side) ================= */}
                     <div className="max-w-[620px] lg:pl-6">
                         
-                        <span className="inline-block text-[#0A7A51] font-bold text-[16px] tracking-wide">
+                        <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
                             Our Features
                         </span>
 
                         {/* Heading exactly split like the target design */}
-                        <h2 className="mt-2 text-[#0B2942] font-extrabold leading-[1.25] text-3xl sm:text-4xl lg:text-[38px] xl:text-[42px] tracking-tight">
+                        <h2 className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight">
                             <span className="whitespace-nowrap">We Offer A Wide Range Of</span> <br className="hidden sm:block" />
                             Disinfection & Cleaning Services
                         </h2>

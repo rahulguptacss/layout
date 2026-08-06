@@ -51,7 +51,7 @@ const partners = [
 
 export default function PartnersSection() {
     return (
-        <section className="relative bg-white py-10 lg:py-12 overflow-hidden">
+        <section className="relative bg-[#F8F9FA] pt-4 pb-8 lg:pt-6 lg:pb-10 overflow-hidden">
             
             {/* Background Wavy Mesh - Left Side */}
             <div className="absolute top-0 left-0 w-[50%] h-full opacity-60 pointer-events-none">
@@ -95,26 +95,22 @@ export default function PartnersSection() {
 
             <div className="max-w-[1320px] mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
                 {/* Header Section */}
-                <div className="text-center max-w-2xl mx-auto mb-16">
+                <div className="text-center max-w-2xl mx-auto mb-8">
                     <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="flex items-center justify-center gap-4 mb-4"
                     >
-                        <div className="w-8 h-[2px] bg-[#E73C3E]"></div>
-                        <span className="text-[#E73C3E] font-bold text-[12px] tracking-[0.15em] uppercase">
+                        <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
                             Trusted By
                         </span>
-                        <div className="w-8 h-[2px] bg-[#E73C3E]"></div>
                     </motion.div>
-
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#0D2235] text-[42px] md:text-[46px] font-extrabold leading-[1.2] tracking-tight mb-4"
+                        className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight mb-4"
                     >
                         Leading Brands & Partners
                     </motion.h2>

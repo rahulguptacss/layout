@@ -19,7 +19,7 @@ export default function ProjectDetail() {
                     <div className="flex flex-col lg:flex-row gap-10">
 
                         {/* Main Content */}
-                        <div className="lg:w-[68%]">
+                        <div className="lg:w-[72%]">
                             <div className="mb-8">
                                 <img
                                     src="/services/service-1.png" // Placeholder
@@ -59,7 +59,7 @@ export default function ProjectDetail() {
                         </div>
 
                         {/* Sidebar */}
-                        <div className="lg:w-[32%]">
+                        <div className="lg:w-[28%]">
                             <Sidebar />
                         </div>
                     </div>
