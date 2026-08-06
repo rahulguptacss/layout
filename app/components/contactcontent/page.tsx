@@ -155,9 +155,7 @@ export default function ContactContent() {
                                     <input
                                         type="tel"
                                         placeholder="Enter Number"
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                            e.target.value = e.target.value.replace(/[^0-9+]/g, '');
-                                        }}
+                                        onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }}
                                         className="w-full h-12 pl-8 border-b border-gray-200 focus:outline-none focus:border-[#1FA463] text-[15px] bg-transparent text-[#333333] placeholder:text-gray-400 transition-colors"
                                     />
                                 </div>

@@ -20,14 +20,13 @@ export default function Home() {
       <Hero />
       <StatsSection />
       <AboutSection />
-      <ServicesSection />
+      <ServicesSection layout="slider" />
       <WorkProcess />
       <PartnersSection />
       <ProjectSection />
       <AchievementSection />
-      <TeamSection limit={4} />
       <FeedbackSection />
-      <NewsSection limit={3} />
+      <NewsSection limit={6} layout="slider" />
       <CalculateCTASection />
       <Footer />
     </main>

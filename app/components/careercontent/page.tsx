@@ -195,7 +195,7 @@ export default function CareerContent() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     <div>
                                         <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Phone Number <span className="text-red-500">*</span></label>
-                                        <input type="tel" placeholder="Enter your phone number" className="w-full h-[46px] px-4 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[14px] text-[#666666] placeholder:text-[#999999]" />
+                                        <input type="tel" placeholder="Enter your phone number" onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }} className="w-full h-[46px] px-4 rounded-md border border-[#EAEAEA] focus:outline-none focus:border-[#1FA463] bg-white text-[14px] text-[#666666] placeholder:text-[#999999]" />
                                     </div>
                                     <div>
                                         <label className="block text-[13px] font-bold text-[#333333] mb-1.5">Position Applying For <span className="text-red-500">*</span></label>

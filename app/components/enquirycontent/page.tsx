@@ -175,6 +175,7 @@ export default function EnquiryContent() {
                                     <input 
                                         type="tel" 
                                         placeholder="Enter your phone number" 
+                                        onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }}
                                         className="w-full h-[46px] px-4 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#1FA463] focus:ring-1 focus:ring-[#1FA463] text-[14px] text-gray-800 placeholder:text-gray-400 transition-colors"
                                     />
                                 </motion.div>

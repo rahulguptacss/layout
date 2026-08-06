@@ -7,6 +7,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import {
     PaintRoller,
     AppWindow,
@@ -94,23 +99,64 @@ const services: ServiceItem[] = [
    Main Component
 ================================ */
 
-export default function ServicesSection() {
+interface ServicesSectionProps {
+    layout?: 'grid' | 'slider';
+}
+
+export default function ServicesSection({ layout = 'grid' }: ServicesSectionProps) {
     return (
         <section className="py-20 bg-[#F8F9FA]">
+            {layout === 'slider' && (
+                <style jsx global>{`
+                    .services-slider .swiper-pagination-bullet-active {
+                        background-color: #0A7A51 !important;
+                    }
+                    .services-slider .swiper-slide {
+                        height: auto;
+                        display: flex;
+                    }
+                `}</style>
+            )}
             <div className="max-w-[1320px] mx-auto px-5 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <SectionHeader />
 
-                {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-14">
-                    {services.map((service, index) => (
-                        <ServiceCard
-                            key={service.id}
-                            service={service}
-                            index={index}
-                        />
-                    ))}
-                </div>
+                {layout === 'slider' ? (
+                    <div className="mt-14 services-slider">
+                        <Swiper
+                            modules={[Navigation, Pagination, Autoplay]}
+                            spaceBetween={28}
+                            slidesPerView={1}
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay: 4000, disableOnInteraction: false }}
+                            breakpoints={{
+                                640: { slidesPerView: 2 },
+                                1024: { slidesPerView: 3 },
+                                1280: { slidesPerView: 4 },
+                            }}
+                            className="!pb-16 !px-2"
+                        >
+                            {services.map((service, index) => (
+                                <SwiperSlide key={service.id}>
+                                    <ServiceCard
+                                        service={service}
+                                        index={index}
+                                    />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-14">
+                        {services.map((service, index) => (
+                            <ServiceCard
+                                key={service.id}
+                                service={service}
+                                index={index}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );
@@ -157,7 +203,7 @@ function ServiceCard({ service, index }: ServiceCardProps) {
                 ease: "easeOut",
             }}
             whileHover={{ y: -8 }}
-            className="group bg-[#EAF2EE] rounded-[16px] p-5 flex flex-col transition-all duration-300 shadow-sm hover:shadow-md"
+            className="group bg-[#EAF2EE] rounded-[16px] p-5 flex flex-col transition-all duration-300 shadow-sm hover:shadow-md w-full h-full"
         >
             {/* Image Wrapper */}
             <div className="relative w-full h-[220px]">

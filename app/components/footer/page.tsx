@@ -17,11 +17,11 @@ import {
 } from "lucide-react";
 
 const links = [
-    "About",
-    "Our Services",
-    "Our Team",
-    "Our Blog",
-    "Contact",
+    { label: "About", href: "/about" },
+    { label: "Our Services", href: "/services" },
+    { label: "Our Team", href: "/team" },
+    { label: "Our Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
 ];
 
 const containerVariants: Variants = {
@@ -146,11 +146,11 @@ export default function Footer() {
 
                         <ul className="space-y-4">
                             {links.map((item) => (
-                                <li key={item}>
-                                    <a href="#" className="flex items-center gap-3 text-[#C8C8C8] text-[15px] hover:text-[#16A361] transition">
+                                <li key={item.label}>
+                                    <Link href={item.href} className="flex items-center gap-3 text-[#C8C8C8] text-[15px] hover:text-[#16A361] transition">
                                         <ChevronRight size={16} className="text-[#16A361]" />
-                                        <span>{item}</span>
-                                    </a>
+                                        <span>{item.label}</span>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -192,6 +192,9 @@ export default function Footer() {
                             Copyright ©2026. <span className="text-white font-bold">CleanPro</span> All Rights Reserved By <span className="text-[#16A361] font-bold">Cssfounder</span>
                         </p>
                         <div className="flex items-center flex-wrap justify-center gap-4 md:gap-6 mt-4 md:mt-0">
+                            <Link href="/sitemap" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
+                                Sitemap
+                            </Link>
                             <Link href="/terms-conditions" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
                                 Terms & Conditions
                             </Link>
