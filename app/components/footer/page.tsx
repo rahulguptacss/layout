@@ -187,10 +187,27 @@ export default function Footer() {
                     transition={{ duration: 1, delay: 0.6 }}
                     className="border-t border-[#3a3a3a] mt-12"
                 >
-                    <div className="py-6 flex justify-center text-center">
-                        <p className="text-[#999] text-[15px]">
+                    <div className="py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p className="text-[#999] text-[15px] text-center md:text-left">
                             Copyright ©2026. <span className="text-white font-bold">CleanPro</span> All Rights Reserved By <span className="text-[#16A361] font-bold">Cssfounder</span>
                         </p>
+                        <div className="flex items-center flex-wrap justify-center gap-4 md:gap-6 mt-4 md:mt-0">
+                            <Link href="/terms-conditions" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
+                                Terms & Conditions
+                            </Link>
+                            <Link href="/privacy-policy" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
+                                Privacy Policy
+                            </Link>
+                            <Link href="/disclaimer" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
+                                Disclaimer
+                            </Link>
+                            <Link href="/refund-policy" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
+                                Refund Policy
+                            </Link>
+                            <Link href="/cookies-policy" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
+                                Cookies Policy
+                            </Link>
+                        </div>
                     </div>
                 </motion.div>
             </div>

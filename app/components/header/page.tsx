@@ -29,12 +29,13 @@ const navLinks: NavLink[] = [
             { title: "Faqs", href: "/faqs" },
             { title: "Awards", href: "/awards" },
             { title: "Our Team", href: "/team" },
-            { title: "Career", href: "/career" }
+            { title: "Career", href: "/career" },
+            { title: "Enquiry", href: "/enquiry" },
+            { title: "Industries We Serve", href: "/industries" }
         ]
     },
     { title: "Services", href: "/services" },
     { title: "Projects", href: "/projects" },
-    { title: "Industries We Serve", href: "/industries" },
     { title: "Blog", href: "/blog" },
     { title: "Contact Us", href: "/contact" },
 ];
@@ -114,9 +115,9 @@ export default function Header() {
                             </div>
                         </div>
 
-                        <button className="bg-[#1FA463] hover:bg-[#18804d] text-white px-7 py-3 rounded-full font-bold text-[15px] transition-colors shadow-sm">
+                        <Link href="/quotes" className="bg-[#1FA463] hover:bg-[#18804d] text-white px-7 py-3 rounded-full font-bold text-[15px] transition-colors shadow-sm inline-block">
                             Get a Quote
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Mobile Button */}
@@ -196,9 +197,9 @@ export default function Header() {
                                     </p>
                                 </div>
                             </div>
-                            <button className="w-full h-12 rounded-full bg-[#1FA463] hover:bg-[#18804d] text-white font-bold text-[15px] transition-colors">
+                            <Link href="/quotes" className="w-full h-12 rounded-full bg-[#1FA463] hover:bg-[#18804d] text-white font-bold text-[15px] transition-colors flex items-center justify-center">
                                 Get a Quote
-                            </button>
+                            </Link>
                         </div>
                     </nav>
                 </div>
