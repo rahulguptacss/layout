@@ -7,6 +7,17 @@ export interface HeroData {
     backgroundImage: string;
 }
 
+export interface Job {
+    title: string;
+    location: string;
+    type: string;
+    iconName: string;
+    slug: string;
+    description: string;
+    requirements: string[];
+    benefits: string[];
+}
+
 export interface ServiceItem {
     id: number;
     title: string;
@@ -102,7 +113,7 @@ export interface CareerData {
     benefits: { iconName: string; title: string }[];
     openingsTitle: string;
     openingsDescription: string;
-    jobs: { title: string; location: string; type: string; iconName: string }[];
+    jobs: Job[];
     viewAllText: string;
     formTitle: string;
     formDescription: string;
@@ -197,6 +208,34 @@ export interface TeamData {
         role: string;
         image: string;
     }[];
+}
+
+export interface TeamDetailData {
+    profile: {
+        name: string;
+        role: string;
+        image: string;
+        description: string;
+        phone: string;
+        location: string;
+        email: string;
+        social: {
+            facebook: string;
+            twitter: string;
+            pinterest: string;
+            linkedin: string;
+        };
+    };
+    skillsSection: {
+        subtitle: string;
+        title: string;
+        description: string;
+        image: string;
+        skills: {
+            title: string;
+            percentage: number;
+        }[];
+    };
 }
 
 export interface TestimonialGridData {
@@ -317,6 +356,7 @@ export interface SiteData {
     project: ProjectData;
     stat: StatData;
     team: TeamData;
+    teamDetail: TeamDetailData;
     testimonialGrid: TestimonialGridData;
     workProcess: WorkProcessData;
     sitemap: SitemapData;

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -97,26 +98,28 @@ function TeamCard({ member, index }: { member: any, index: number }) {
             transition={{ delay: index * 0.1, duration: 0.6 }}
             className="relative group bg-[#F8F9FA] overflow-hidden rounded-sm w-full"
         >
-            <div className="relative h-[380px] lg:h-[420px] w-full overflow-hidden">
-                {/* Member Image */}
-                <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                />
-                
-                {/* Green Triangle Background */}
-                <div 
-                    className="absolute bottom-0 right-0 w-full h-[130px] lg:h-[150px] bg-[#078B55] z-0 transition-all duration-300 group-hover:bg-[#067246] group-hover:h-[140px] lg:group-hover:h-[160px]"
-                    style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }}
-                ></div>
-                
-                {/* Name and Role Text */}
-                <div className="absolute bottom-0 right-0 z-10 w-full p-5 lg:p-6 text-right flex flex-col justify-end h-[130px] lg:h-[150px] transition-all duration-300 group-hover:pb-6 lg:group-hover:pb-8">
-                    <h3 className="text-white text-[18px] lg:text-[20px] font-bold tracking-wide transition-transform duration-300 group-hover:-translate-y-1">{member.name}</h3>
-                    <p className="text-white/90 text-[13px] lg:text-[14px] mt-0.5 lg:mt-1 transition-transform duration-300 group-hover:-translate-y-1 delay-75">{member.role}</p>
+            <Link href="/team/detail" className="block w-full h-full">
+                <div className="relative h-[380px] lg:h-[420px] w-full overflow-hidden">
+                    {/* Member Image */}
+                    <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                    />
+                    
+                    {/* Green Triangle Background */}
+                    <div 
+                        className="absolute bottom-0 right-0 w-full h-[130px] lg:h-[150px] bg-[#078B55] z-0 transition-all duration-300 group-hover:bg-[#067246] group-hover:h-[140px] lg:group-hover:h-[160px]"
+                        style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }}
+                    ></div>
+                    
+                    {/* Name and Role Text */}
+                    <div className="absolute bottom-0 right-0 z-10 w-full p-5 lg:p-6 text-right flex flex-col justify-end h-[130px] lg:h-[150px] transition-all duration-300 group-hover:pb-6 lg:group-hover:pb-8">
+                        <h3 className="text-white text-[18px] lg:text-[20px] font-bold tracking-wide transition-transform duration-300 group-hover:-translate-y-1">{member.name}</h3>
+                        <p className="text-white/90 text-[13px] lg:text-[14px] mt-0.5 lg:mt-1 transition-transform duration-300 group-hover:-translate-y-1 delay-75">{member.role}</p>
+                    </div>
                 </div>
-            </div>
+            </Link>
         </motion.div>
     );
 }

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -95,32 +96,34 @@ export default function ProjectSection() {
                                 transition={{ delay: (index % 5) * 0.1 }}
                                 className="w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] snap-start shrink-0 group cursor-pointer"
                             >
-                                <div className="bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 group-hover:-translate-y-2 h-full flex flex-col">
-                                    {/* Image Container */}
-                                    <div className="relative h-[280px] md:h-[320px] w-full overflow-hidden">
-                                        <Image 
-                                            src={project.image}
-                                            alt={project.title}
-                                            fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        />
-                                    </div>
-                                    
-                                    {/* Content Area */}
-                                    <div className="p-6 relative grow flex flex-col justify-center">
-                                        {/* Green square button overlaying image/content border */}
-                                        <div className="absolute right-6 -top-5 w-10 h-10 rounded-[4px] bg-[#1FA463] flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110">
-                                            <ArrowRight size={20} className="text-white" strokeWidth={2.5} />
+                                <Link href="/projects/detail" className="block h-full">
+                                    <div className="bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 group-hover:-translate-y-2 h-full flex flex-col">
+                                        {/* Image Container */}
+                                        <div className="relative h-[280px] md:h-[320px] w-full overflow-hidden">
+                                            <Image 
+                                                src={project.image}
+                                                alt={project.title}
+                                                fill
+                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            />
                                         </div>
+                                        
+                                        {/* Content Area */}
+                                        <div className="p-6 relative grow flex flex-col justify-center">
+                                            {/* Green square button overlaying image/content border */}
+                                            <div className="absolute right-6 -top-5 w-10 h-10 rounded-[4px] bg-[#1FA463] flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110">
+                                                <ArrowRight size={20} className="text-white" strokeWidth={2.5} />
+                                            </div>
 
-                                        <h3 className="text-[#0D2235] font-extrabold text-[20px] mb-1.5">
-                                            {project.title}
-                                        </h3>
-                                        <p className="text-[#0D2235] text-[14px] font-bold">
-                                            {project.category}
-                                        </p>
+                                            <h3 className="text-[#0D2235] font-extrabold text-[20px] mb-1.5">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-[#0D2235] text-[14px] font-bold">
+                                                {project.category}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
                             </motion.div>
                         ))}
                     </div>

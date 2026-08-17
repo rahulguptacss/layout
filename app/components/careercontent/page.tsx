@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
     Briefcase, TrendingUp, DollarSign, BookOpen, 
@@ -140,26 +141,26 @@ export default function CareerContent() {
                                 {career.jobs.map((job, idx) => {
                                     const JobIcon = iconMap[job.iconName] || Map;
                                     return (
-                                    <div key={idx} className="border border-[#EAEAEA] rounded-md py-2.5 px-4 flex items-center justify-between hover:border-[#1FA463] hover:shadow-sm transition-all duration-300 cursor-pointer group bg-white">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-[38px] h-[38px] rounded-lg bg-[#EAF5EB] flex items-center justify-center shrink-0">
-                                                <JobIcon size={22} className="text-[#1FA463]" strokeWidth={1.5} />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-[#222222] text-[14px] font-bold mb-0.5 group-hover:text-[#1FA463] transition-colors">{job.title}</h4>
-                                                <div className="flex items-center gap-1 text-[#666666] text-[11px]">
-                                                    <MapPin size={12} className="text-[#1FA463]" strokeWidth={2} />
-                                                    {job.location}
+                                        <Link href={`/career/${job.slug}`} key={idx}>
+                                            <div className="border border-[#EAEAEA] rounded-md py-2.5 px-4 flex items-center justify-between hover:border-[#1FA463] hover:shadow-sm transition-all duration-300 cursor-pointer group bg-white mb-2.5">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-[38px] h-[38px] rounded-lg bg-[#EAF5EB] flex items-center justify-center shrink-0">
+                                                        <JobIcon size={22} className="text-[#1FA463]" strokeWidth={1.5} />
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="text-[#222222] font-extrabold text-[15px] leading-tight mb-0.5 group-hover:text-[#1FA463] transition-colors">{job.title}</h4>
+                                                        <div className="flex items-center gap-1 text-[#666666] text-[13px]">
+                                                            <MapPin size={12} className="text-[#1FA463]" />
+                                                            {job.location}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center gap-4">
+                                                    <span className="bg-[#EAF5EB] text-[#1FA463] text-[12px] font-bold px-3 py-1 rounded-full">{job.type}</span>
+                                                    <ChevronRight size={18} className="text-[#999999] group-hover:text-[#1FA463] transition-colors" />
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#EAF5EB] text-[#1FA463]">
-                                                {job.type}
-                                            </span>
-                                            <ChevronRight size={16} className="text-[#1FA463]" strokeWidth={2.5} />
-                                        </div>
-                                    </div>
+                                        </Link>
                                     );
                                 })}
                             </div>

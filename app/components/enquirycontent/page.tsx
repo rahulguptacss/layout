@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, ChevronDown, Send, LucideIcon } from 'lucide-react';
 import siteData from "@/src/data/data.json";
@@ -214,7 +215,7 @@ export default function EnquiryContent() {
                                         className="w-[14px] h-[14px] rounded border-gray-300 text-[#007A50] focus:ring-[#007A50] cursor-pointer" 
                                     />
                                     <label htmlFor="privacy" className="text-[13.5px] text-[#14231E] font-bold cursor-pointer">
-                                        I agree to the <a href="#" className="text-[#007A50] hover:underline transition-colors">privacy policy</a>.
+                                        I agree to the <Link href="/privacy-policy" className="text-[#007A50] hover:underline transition-colors">privacy policy</Link>.
                                     </label>
                                 </div>
 

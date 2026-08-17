@@ -283,31 +283,101 @@
         "title": "Housekeeping Staff",
         "location": "Las Vegas, NV",
         "type": "Full Time",
-        "iconName": "map"
+        "iconName": "map",
+        "slug": "housekeeping-staff",
+        "description": "We are seeking a dedicated and detail-oriented individual to join our team. You will be responsible for maintaining a high standard of cleanliness and hygiene in assigned areas. The ideal candidate will have prior experience in a similar role, strong attention to detail, and a commitment to providing excellent service. Join us and be part of a dynamic team dedicated to maintaining a safe, clean, and welcoming environment for everyone.",
+        "requirements": [
+          "Proven experience in a similar role",
+          "Knowledge of cleaning chemicals and supplies",
+          "Familiarity with Material Safety Data Sheets",
+          "Integrity and ability to work independently"
+        ],
+        "benefits": [
+          "Competitive salary and performance bonuses",
+          "Comprehensive health insurance",
+          "Paid time off and sick leave",
+          "Opportunities for professional growth and training"
+        ]
       },
       {
         "title": "Cleaning Supervisor",
         "location": "Las Vegas, NV",
         "type": "Full Time",
-        "iconName": "user-cog"
+        "iconName": "user-cog",
+        "slug": "cleaning-supervisor",
+        "description": "We are seeking a dedicated and detail-oriented individual to join our team. You will be responsible for maintaining a high standard of cleanliness and hygiene in assigned areas. The ideal candidate will have prior experience in a similar role, strong attention to detail, and a commitment to providing excellent service. Join us and be part of a dynamic team dedicated to maintaining a safe, clean, and welcoming environment for everyone.",
+        "requirements": [
+          "Proven experience in a similar role",
+          "Knowledge of cleaning chemicals and supplies",
+          "Familiarity with Material Safety Data Sheets",
+          "Integrity and ability to work independently"
+        ],
+        "benefits": [
+          "Competitive salary and performance bonuses",
+          "Comprehensive health insurance",
+          "Paid time off and sick leave",
+          "Opportunities for professional growth and training"
+        ]
       },
       {
         "title": "Office Cleaner",
         "location": "Las Vegas, NV",
         "type": "Part Time",
-        "iconName": "user-check"
+        "iconName": "user-check",
+        "slug": "office-cleaner",
+        "description": "We are seeking a dedicated and detail-oriented individual to join our team. You will be responsible for maintaining a high standard of cleanliness and hygiene in assigned areas. The ideal candidate will have prior experience in a similar role, strong attention to detail, and a commitment to providing excellent service. Join us and be part of a dynamic team dedicated to maintaining a safe, clean, and welcoming environment for everyone.",
+        "requirements": [
+          "Proven experience in a similar role",
+          "Knowledge of cleaning chemicals and supplies",
+          "Familiarity with Material Safety Data Sheets",
+          "Integrity and ability to work independently"
+        ],
+        "benefits": [
+          "Competitive salary and performance bonuses",
+          "Comprehensive health insurance",
+          "Paid time off and sick leave",
+          "Opportunities for professional growth and training"
+        ]
       },
       {
         "title": "Floor Technician",
         "location": "Las Vegas, NV",
         "type": "Full Time",
-        "iconName": "settings"
+        "iconName": "settings",
+        "slug": "floor-technician",
+        "description": "We are seeking a dedicated and detail-oriented individual to join our team. You will be responsible for maintaining a high standard of cleanliness and hygiene in assigned areas. The ideal candidate will have prior experience in a similar role, strong attention to detail, and a commitment to providing excellent service. Join us and be part of a dynamic team dedicated to maintaining a safe, clean, and welcoming environment for everyone.",
+        "requirements": [
+          "Proven experience in a similar role",
+          "Knowledge of cleaning chemicals and supplies",
+          "Familiarity with Material Safety Data Sheets",
+          "Integrity and ability to work independently"
+        ],
+        "benefits": [
+          "Competitive salary and performance bonuses",
+          "Comprehensive health insurance",
+          "Paid time off and sick leave",
+          "Opportunities for professional growth and training"
+        ]
       },
       {
         "title": "Customer Service Executive",
         "location": "Las Vegas, NV",
         "type": "Full Time",
-        "iconName": "headset"
+        "iconName": "headset",
+        "slug": "customer-service-executive",
+        "description": "We are seeking a dedicated and detail-oriented individual to join our team. You will be responsible for maintaining a high standard of cleanliness and hygiene in assigned areas. The ideal candidate will have prior experience in a similar role, strong attention to detail, and a commitment to providing excellent service. Join us and be part of a dynamic team dedicated to maintaining a safe, clean, and welcoming environment for everyone.",
+        "requirements": [
+          "Proven experience in a similar role",
+          "Knowledge of cleaning chemicals and supplies",
+          "Familiarity with Material Safety Data Sheets",
+          "Integrity and ability to work independently"
+        ],
+        "benefits": [
+          "Competitive salary and performance bonuses",
+          "Comprehensive health insurance",
+          "Paid time off and sick leave",
+          "Opportunities for professional growth and training"
+        ]
       }
     ],
     "viewAllText": "View All Openings",
@@ -1454,5 +1524,42 @@
         "image": "/services/service-3.png"
       }
     ]
+  },
+  "teamDetail": {
+    "profile": {
+      "name": "Georgia Mishel",
+      "role": "Professional Cleaner",
+      "image": "/team/1.jpg",
+      "description": "Mauris et vivamus mus massa viverra dis litora aliquam maecenas penatibus praesent class conubia morbi dictum habitant est magnis cubilia a aliquet congue vestibulum suscipit. Cras malesuada id in nullam feugiat magnis elementum inceptos a mi.",
+      "phone": "+1 (800)-666-6520",
+      "location": "24/7 Casino street, England",
+      "email": "info@klean24.com",
+      "social": {
+        "facebook": "#",
+        "twitter": "#",
+        "pinterest": "#",
+        "linkedin": "#"
+      }
+    },
+    "skillsSection": {
+      "subtitle": "Our Work Excellence",
+      "title": "Find Standard Cleaning with Personal Touch",
+      "description": "Duis mattis sodales convallis ad laoreet aliquet nostra eleifend habitasse potenti hendrerit mi cras penatibus erat. Ac pulvinar integer semper ridiculus laoreet condimentum diam dis nec nulla curae inceptos morbi cras non quisque vulputate mi.",
+      "image": "/team/2.jpg",
+      "skills": [
+        {
+          "title": "Result Quality",
+          "percentage": 98
+        },
+        {
+          "title": "Happy Customer",
+          "percentage": 80
+        },
+        {
+          "title": "Support Centre",
+          "percentage": 98
+        }
+      ]
+    }
   }
 }
