@@ -13,67 +13,65 @@ import {
     Wand2
 } from "lucide-react";
 
-const steps = [
-    {
-        num: "01",
-        title: "BOOK & SCHEDULE",
-        desc: "Choose your preferred date & time and book our cleaning service in just a few clicks.",
-        renderIcon: () => (
+import siteData from "@/src/data/data.json";
+
+const { workProcess } = siteData;
+
+const iconMap: Record<string, any> = {
+    "headset": Headset,
+    "message-square-text": MessageSquareText,
+    "clipboard-list": ClipboardList,
+    "home": Home,
+    "spray-can": SprayCan,
+    "sparkles": Sparkles,
+    "search": Search
+};
+
+const renderIcon = (index: number, mainIconName: string, subIconName: string) => {
+    const MainIcon = iconMap[mainIconName] || Home;
+    const SubIcon = iconMap[subIconName] || Sparkles;
+
+    if (index === 0) {
+        return (
             <div className="relative w-full h-full flex items-center justify-center">
-                <Headset size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
-                <MessageSquareText size={22} className="absolute right-7 top-8 stroke-[2] text-[#1FA463]" />
+                <MainIcon size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
+                <SubIcon size={22} className="absolute right-7 top-8 stroke-[2] text-[#1FA463]" />
             </div>
-        )
-    },
-    {
-        num: "02",
-        title: "ASSESSMENT",
-        desc: "Our team assesses your home and understands your cleaning needs.",
-        renderIcon: () => (
+        );
+    } else if (index === 1) {
+        return (
             <div className="relative w-full h-full flex items-center justify-center">
-                <ClipboardList size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
+                <MainIcon size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
                 <div className="absolute right-5 bottom-6 bg-[#FAFCFB] group-hover:bg-white rounded-sm p-0.5 transition-colors duration-300">
-                    <Home size={22} className="stroke-[2.5] text-[#1FA463]" />
+                    <SubIcon size={22} className="stroke-[2.5] text-[#1FA463]" />
                 </div>
             </div>
-        )
-    },
-    {
-        num: "03",
-        title: "CLEANING BEGINS",
-        desc: "We use safe products and proven techniques to start the deep cleaning process.",
-        renderIcon: () => (
+        );
+    } else if (index === 2) {
+        return (
             <div className="relative w-full h-full flex items-center justify-center">
-                <SprayCan size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
-                <Sparkles size={24} className="absolute right-6 top-6 stroke-[2] text-[#1FA463]" />
+                <MainIcon size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
+                <SubIcon size={24} className="absolute right-6 top-6 stroke-[2] text-[#1FA463]" />
             </div>
-        )
-    },
-    {
-        num: "04",
-        title: "QUALITY CHECK",
-        desc: "Our supervisor inspects every area to ensure top-quality cleaning standards.",
-        renderIcon: () => (
+        );
+    } else if (index === 3) {
+        return (
             <div className="relative w-full h-full flex items-center justify-center">
-                <ClipboardList size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
+                <MainIcon size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
                 <div className="absolute right-3 bottom-5 bg-[#FAFCFB] group-hover:bg-white rounded-full p-0.5 transition-colors duration-300">
-                    <Search size={24} className="stroke-[2.5] text-[#1FA463]" />
+                    <SubIcon size={24} className="stroke-[2.5] text-[#1FA463]" />
                 </div>
             </div>
-        )
-    },
-    {
-        num: "05",
-        title: "SPOTLESS HOME",
-        desc: "We leave your home spotless, fresh, and ready for you to relax and enjoy.",
-        renderIcon: () => (
+        );
+    } else {
+        return (
             <div className="relative w-full h-full flex items-center justify-center">
-                <Home size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
-                <Sparkles size={28} className="absolute right-4 top-5 stroke-[2] text-[#1FA463]" />
+                <MainIcon size={56} className="stroke-[1.2] text-[#1F2937] group-hover:text-[#1FA463] transition-colors duration-300" />
+                <SubIcon size={28} className="absolute right-4 top-5 stroke-[2] text-[#1FA463]" />
             </div>
-        )
-    },
-];
+        );
+    }
+};
 
 export default function WorkProcess() {
     return (
@@ -118,7 +116,7 @@ export default function WorkProcess() {
                         viewport={{ once: true }}
                     >
                         <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
-                            Work Process
+                            {workProcess.subtitle}
                         </span>
                     </motion.div>
 
@@ -129,7 +127,7 @@ export default function WorkProcess() {
                         transition={{ delay: 0.1 }}
                         className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight"
                     >
-                        Our Simple 5 Step Cleaning Process
+                        {workProcess.title}
                     </motion.h2>
 
                     <motion.div 
@@ -151,18 +149,18 @@ export default function WorkProcess() {
                         transition={{ delay: 0.3 }}
                         className="text-[#6B7280] text-[16px] md:text-[18px] leading-relaxed max-w-lg mx-auto"
                     >
-                        We follow a simple and effective process to make your home clean, fresh and comfortable.
+                        {workProcess.description}
                     </motion.p>
                 </div>
 
                 {/* Steps Timeline - Reduced Max Width to bring icons closer */}
                 <div className="max-w-[1150px] mx-auto flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0">
-                    {steps.map((step, index) => {
+                    {workProcess.steps.map((step, index) => {
                         return (
                             <div key={index} className="group relative flex-1 w-full flex flex-col items-center cursor-pointer">
                                 
                                 {/* Connector Line (Desktop Only) */}
-                                {index < steps.length - 1 && (
+                                {index < workProcess.steps.length - 1 && (
                                     <div className="hidden lg:flex absolute top-[65px] left-[50%] w-full items-center justify-center z-0 px-[75px]">
                                         <div className="w-full border-t-[2px] border-dashed border-[#D1D5DB] transition-colors duration-300 group-hover:border-[#1FA463]"></div>
                                         <ChevronRight className="text-[#1FA463] -ml-2 shrink-0 transition-transform duration-300 group-hover:translate-x-1" size={20} strokeWidth={3} />
@@ -177,7 +175,7 @@ export default function WorkProcess() {
                                     transition={{ delay: 0.1 * index, type: "spring", stiffness: 100 }}
                                     className="relative z-10 w-[130px] h-[130px] rounded-full bg-[#FAFCFB] border border-[#1FA463]/30 shadow-sm flex items-center justify-center mb-6 transition-all duration-300 group-hover:border-[#1FA463] group-hover:bg-white group-hover:-translate-y-2 group-hover:shadow-[0_15px_30px_rgba(84,138,84,0.15)]"
                                 >
-                                    {step.renderIcon()}
+                                    {renderIcon(index, step.mainIcon, step.subIcon)}
                                     
                                     {/* Number Badge */}
                                     <div className="absolute -bottom-3 w-[30px] h-[30px] rounded-full bg-[#1FA463] text-white flex items-center justify-center text-[12px] font-bold border-2 border-white shadow-sm transition-transform duration-300 group-hover:scale-110">

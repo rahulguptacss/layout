@@ -3,39 +3,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Shield, Leaf, ShieldCheck, FileBadge, Star } from 'lucide-react';
+import siteData from "@/src/data/data.json";
 
-const awards = [
-    {
-        title: "Quality Service Award",
-        description: "Honored for delivering outstanding cleaning services with excellence.",
-        icon: (
-            <div className="relative flex items-center justify-center w-[48px] h-[48px]">
-                <Award size={48} className="text-[#398E3D]" strokeWidth={1.5} />
-                <Star size={16} className="text-[#398E3D] absolute top-[11px]" fill="#398E3D" strokeWidth={0} />
-            </div>
-        )
-    },
-    {
-        title: "Eco Friendly Certified",
-        description: "Certified for using eco-friendly products and sustainable cleaning practices.",
-        icon: (
-            <div className="relative flex items-center justify-center w-[48px] h-[48px]">
-                <Shield size={48} className="text-[#398E3D]" strokeWidth={1.5} />
-                <Leaf size={22} className="text-[#398E3D] absolute" strokeWidth={1.5} fill="#398E3D" />
-            </div>
-        )
-    },
-    {
-        title: "Trusted Service Provider",
-        description: "Recognized for reliability, transparency and dedication to our clients.",
-        icon: <ShieldCheck size={48} className="text-[#398E3D]" strokeWidth={1.5} />
-    },
-    {
-        title: "Safety First Certified",
-        description: "Certified for maintaining high safety standards for our team and your property.",
-        icon: <FileBadge size={48} className="text-[#398E3D]" strokeWidth={1.5} />
-    }
-];
+const { awards } = siteData;
+
+const iconMap: Record<string, React.ReactNode> = {
+    "award": (
+        <div className="relative flex items-center justify-center w-[48px] h-[48px]">
+            <Award size={48} className="text-[#398E3D]" strokeWidth={1.5} />
+            <Star size={16} className="text-[#398E3D] absolute top-[11px]" fill="#398E3D" strokeWidth={0} />
+        </div>
+    ),
+    "shield": (
+        <div className="relative flex items-center justify-center w-[48px] h-[48px]">
+            <Shield size={48} className="text-[#398E3D]" strokeWidth={1.5} />
+            <Leaf size={22} className="text-[#398E3D] absolute" strokeWidth={1.5} fill="#398E3D" />
+        </div>
+    ),
+    "shield-check": <ShieldCheck size={48} className="text-[#398E3D]" strokeWidth={1.5} />,
+    "file-badge": <FileBadge size={48} className="text-[#398E3D]" strokeWidth={1.5} />
+};
+
+const mappedAwards = awards.items.map(item => ({
+    ...item,
+    icon: iconMap[item.iconType] || <Award size={48} className="text-[#398E3D]" strokeWidth={1.5} />
+}));
 
 export default function AwardsSection() {
     return (
@@ -60,7 +52,7 @@ export default function AwardsSection() {
                         </div>
                         <div className="bg-[#398E3D] text-white px-5 py-2 rounded-sm flex items-center gap-2 text-[13px] font-bold tracking-wider uppercase shadow-sm">
                             <ShieldCheck size={16} />
-                            Awards & Certifications
+                            {awards.subtitle}
                         </div>
                         <div className="flex items-center gap-1">
                             <div className="w-[40px] h-[1.5px] bg-[#398E3D]"></div>
@@ -75,7 +67,7 @@ export default function AwardsSection() {
                         transition={{ delay: 0.1 }}
                         className="text-[#2A2A2A] text-[32px] md:text-[44px] font-semibold tracking-tight leading-[1.2] mb-6"
                     >
-                        Awards & <span className="text-[#398E3D]">Certifications</span>
+                        {awards.titleLine1} <span className="text-[#398E3D]">{awards.titleHighlight}</span>
                     </motion.h2>
 
                     <motion.div
@@ -107,14 +99,14 @@ export default function AwardsSection() {
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z" /></svg>
                         </div>
                         <p className="text-[#555555] text-[16px] md:text-[17px] leading-[1.8] relative z-10 px-8">
-                            Recognized for our commitment to excellence, quality service and customer satisfaction.
+                            {awards.description}
                         </p>
                     </motion.div>
                 </div>
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
-                    {awards.map((award, index) => (
+                    {mappedAwards.map((award, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}

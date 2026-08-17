@@ -4,32 +4,10 @@ import { useRef, useState } from "react";
 import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
 
-const feedbacks = [
-    {
-        name: "Petar Mansion",
-        role: "Senior Designer",
-        image: "https://i.pravatar.cc/150?img=11",
-        content: "Hymenaeos rhoncus proin aliquam justo sum mauris rutrum nullam semper purus rutru non sociis libero varius cumer to duine felis enisa porta ridiculus nisl acequis.",
-    },
-    {
-        name: "Jhon Doe",
-        role: "Senior Developer",
-        image: "https://i.pravatar.cc/150?img=68",
-        content: "Hymenaeos rhoncus proin aliquam justo sum mauris rutrum nullam semper purus rutru non sociis libero varius cumer to duine felis enisa porta ridiculus nisl acequis.",
-    },
-    {
-        name: "Shane Watson",
-        role: "Senior Designer",
-        image: "https://i.pravatar.cc/150?img=44",
-        content: "Hymenaeos rhoncus proin aliquam justo sum mauris rutrum nullam semper purus rutru non sociis libero varius cumer to duine felis enisa porta ridiculus nisl acequis.",
-    },
-    {
-        name: "Sarah Smith",
-        role: "Project Manager",
-        image: "https://i.pravatar.cc/150?img=5",
-        content: "Hymenaeos rhoncus proin aliquam justo sum mauris rutrum nullam semper purus rutru non sociis libero varius cumer to duine felis enisa porta ridiculus nisl acequis.",
-    }
-];
+import siteData from "@/src/data/data.json";
+
+const { feedback } = siteData;
+const feedbacks = feedback.feedbacks;
 
 export default function FeedbackSection() {
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -102,7 +80,7 @@ export default function FeedbackSection() {
                         viewport={{ once: true }}
                     >
                         <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
-                            Customer Feedback
+                            {feedback.subtitle}
                         </span>
                     </motion.div>
                     <motion.h2 
@@ -112,7 +90,7 @@ export default function FeedbackSection() {
                         transition={{ delay: 0.1 }}
                         className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight"
                     >
-                        Quality Cleaning Making<br/>you Much Happy
+                        {feedback.titleLine1}<br/>{feedback.titleLine2}
                     </motion.h2>
                 </div>
 

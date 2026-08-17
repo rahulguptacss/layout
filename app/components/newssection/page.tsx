@@ -7,44 +7,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const newsItems = [
-    {
-        title: "How To Clean And Spread Disinfect Home & Office",
-        date: "20 Mar 2024",
-        image: "/news/1.jpg",
-        link: "/blog/detail"
-    },
-    {
-        title: "Superior Clean Through Our Trained Cleaning Staff",
-        date: "21 Mar 2024",
-        image: "/news/2.jpg",
-        link: "/blog/detail"
-    },
-    {
-        title: "Corona Virus Infection Prevention Everywhere",
-        date: "22 Mar 2024",
-        image: "/news/3.jpg",
-        link: "/blog/detail"
-    },
-    {
-        title: "How To Clean And Spread Disinfect Home & Office",
-        date: "20 Mar 2024",
-        image: "/news/1.jpg",
-        link: "/blog/detail"
-    },
-    {
-        title: "Superior Clean Through Our Trained Cleaning Staff",
-        date: "21 Mar 2024",
-        image: "/news/2.jpg",
-        link: "/blog/detail"
-    },
-    {
-        title: "Corona Virus Infection Prevention Everywhere",
-        date: "22 Mar 2024",
-        image: "/news/3.jpg",
-        link: "/blog/detail"
-    }
-];
+import siteData from "@/src/data/data.json";
+
+const { news } = siteData;
+const newsItems = news.items;
 
 interface NewsSectionProps {
     limit?: number;
@@ -75,7 +41,7 @@ export default function NewsSection({ limit = 6, layout = 'grid' }: NewsSectionP
                         viewport={{ once: true }}
                     >
                         <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
-                            News
+                            {news.subtitle}
                         </span>
                     </motion.div>
                     <motion.h2 
@@ -85,7 +51,7 @@ export default function NewsSection({ limit = 6, layout = 'grid' }: NewsSectionP
                         transition={{ delay: 0.1 }}
                         className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight"
                     >
-                        Our Latest News
+                        {news.title}
                     </motion.h2>
                 </div>
 

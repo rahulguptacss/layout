@@ -15,14 +15,9 @@ import {
     Smartphone,
     ChevronRight,
 } from "lucide-react";
+import siteData from "@/src/data/data.json";
 
-const links = [
-    { label: "About", href: "/about" },
-    { label: "Our Services", href: "/services" },
-    { label: "Our Team", href: "/team" },
-    { label: "Our Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
-];
+const { footer } = siteData;
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -73,7 +68,7 @@ export default function Footer() {
 
                         {/* Description */}
                         <p className="text-[#C8C8C8] text-[15px] leading-[1.6] -mt-10 max-w-[280px]">
-                            Lorem ipsum dolor sit amet, consec tetur elit eiusmod tempor incididunt labore dolore magna aliqua consec tetur adipis cing elite sed do labor.
+                            {footer.description}
                         </p>
 
                         {/* Social */}
@@ -81,16 +76,16 @@ export default function Footer() {
                             <span className="font-bold text-white text-[15px] mr-2">
                                 Follow Us:
                             </span>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                            <a href={footer.social.facebook} className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
                                 <Facebook size={14} />
                             </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                            <a href={footer.social.linkedin} className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
                                 <Linkedin size={14} />
                             </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                            <a href={footer.social.twitter} className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
                                 <Twitter size={14} />
                             </a>
-                            <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                            <a href={footer.social.instagram} className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
                                 <Instagram size={14} />
                             </a>
                         </div>
@@ -109,7 +104,7 @@ export default function Footer() {
                             <div>
                                 <h5 className="font-bold text-white text-[15px]">Location:</h5>
                                 <p className="text-[#C8C8C8] text-[14px] mt-[2px] leading-snug">
-                                    2976 Sunrise Avenue, Las Vegas
+                                    {footer.address}
                                 </p>
                             </div>
                         </div>
@@ -119,8 +114,8 @@ export default function Footer() {
                             <Mail size={18} className="text-[#16A361] mt-[3px] shrink-0" />
                             <div>
                                 <h5 className="font-bold text-white text-[15px]">Email:</h5>
-                                <a href="mailto:hello@anwa.com" className="text-[#C8C8C8] text-[14px] mt-[2px] block hover:text-[#16A361] transition">
-                                    hello@anwa.com
+                                <a href={`mailto:${footer.email}`} className="text-[#C8C8C8] text-[14px] mt-[2px] block hover:text-[#16A361] transition">
+                                    {footer.email}
                                 </a>
                             </div>
                         </div>
@@ -130,8 +125,8 @@ export default function Footer() {
                             <Smartphone size={18} className="text-[#16A361] mt-[3px] shrink-0" />
                             <div>
                                 <h5 className="font-bold text-white text-[15px]">Phone:</h5>
-                                <a href="tel:+13454567877" className="text-[#C8C8C8] text-[14px] mt-[2px] block hover:text-[#16A361] transition">
-                                    +1-3454-5678-77
+                                <a href={`tel:${footer.phone.replace(/[^0-9+]/g, '')}`} className="text-[#C8C8C8] text-[14px] mt-[2px] block hover:text-[#16A361] transition">
+                                    {footer.phone}
                                 </a>
                             </div>
                         </div>
@@ -145,7 +140,7 @@ export default function Footer() {
                         <div className="w-10 h-[2px] bg-[#16A361] mt-3 mb-6"></div>
 
                         <ul className="space-y-4">
-                            {links.map((item) => (
+                            {footer.quickLinks.map((item) => (
                                 <li key={item.label}>
                                     <Link href={item.href} className="flex items-center gap-3 text-[#C8C8C8] text-[15px] hover:text-[#16A361] transition">
                                         <ChevronRight size={16} className="text-[#16A361]" />
@@ -171,7 +166,7 @@ export default function Footer() {
                             <input
                                 type="email"
                                 placeholder="Your email address"
-                                className="w-full h-[48px] rounded-full px-6 outline-none text-[15px] text-[#333] bg-white"
+                                className="w-full h-[48px] rounded-full px-6 outline-none text-[15px] text-[#333] bg-white placeholder:text-[#999]"
                             />
                             <button className="mt-4 w-full h-[48px] rounded-full bg-[#16A361] hover:bg-[#128a51] transition font-bold text-white text-[16px]">
                                 Subscribe
@@ -187,29 +182,14 @@ export default function Footer() {
                     transition={{ duration: 1, delay: 0.6 }}
                     className="border-t border-[#3a3a3a] mt-12"
                 >
-                    <div className="py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-[#999] text-[15px] text-center md:text-left">
-                            Copyright ©2026. <span className="text-white font-bold">CleanPro</span> All Rights Reserved By <span className="text-[#16A361] font-bold">Cssfounder</span>
-                        </p>
-                        <div className="flex items-center flex-wrap justify-center gap-4 md:gap-6 mt-4 md:mt-0">
-                            <Link href="/sitemap" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
-                                Sitemap
-                            </Link>
-                            <Link href="/terms-conditions" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
-                                Terms & Conditions
-                            </Link>
-                            <Link href="/privacy-policy" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
-                                Privacy Policy
-                            </Link>
-                            <Link href="/disclaimer" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
-                                Disclaimer
-                            </Link>
-                            <Link href="/refund-policy" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
-                                Refund Policy
-                            </Link>
-                            <Link href="/cookies-policy" className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
-                                Cookies Policy
-                            </Link>
+                    <div className="py-6 flex flex-col-reverse md:flex-row justify-between items-center gap-4">
+                        <p className="text-[#999] text-[15px] text-center md:text-left mt-4 md:mt-0" dangerouslySetInnerHTML={{ __html: footer.copyright.replace('CleanPro', '<span class="text-white font-bold">CleanPro</span>').replace('Cssfounder', '<span class="text-[#16A361] font-bold">Cssfounder</span>') }} />
+                        <div className="flex items-center flex-wrap justify-center gap-4 md:gap-6">
+                            {footer.footerLinks.map((item) => (
+                                <Link key={item.label} href={item.href} className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
+                                    {item.label}
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 </motion.div>

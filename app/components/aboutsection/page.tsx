@@ -6,17 +6,9 @@
 
 import Image from "next/image";
 import { Check } from "lucide-react";
+import siteData from "@/src/data/data.json";
 
-/* ===============================
-   Features Data
-================================ */
-
-const features = [
-    "Deep Cleaning Service",
-    "Fully Equipment",
-    "Disinfecting Service",
-    "Professional Sanitizing",
-];
+const { about } = siteData;
 
 /* ===============================
    Main Component
@@ -70,10 +62,10 @@ export default function AboutSection() {
                                 }}
                             >
                                 <h2 className="text-[44px] font-bold leading-none tracking-tight">
-                                    30
+                                    {about.experienceYears}
                                 </h2>
                                 <p className="text-[15px] font-semibold tracking-wide mt-1">
-                                    Years
+                                    {about.experienceText}
                                 </p>
                             </div>
                         </div>
@@ -84,29 +76,26 @@ export default function AboutSection() {
                     <div className="max-w-[620px] lg:pl-6">
                         
                         <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
-                            Our Features
+                            {about.subtitle}
                         </span>
 
                         {/* Heading exactly split like the target design */}
                         <h2 className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight">
-                            <span className="whitespace-nowrap">We Offer A Wide Range Of</span> <br className="hidden sm:block" />
-                            Disinfection & Cleaning Services
+                            <span className="whitespace-nowrap">{about.titleLine1}</span> <br className="hidden sm:block" />
+                            {about.titleLine2}
                         </h2>
 
                         <p className="mt-6 text-[#6B7280] text-[15px] leading-[26px]">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                            incididunt ut labore et dolore magna aliqua. Quis suspendisse ultrice.
+                            {about.description1}
                         </p>
 
                         <p className="mt-4 text-[#6B7280] text-[15px] leading-[26px]">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                            incididunt ut labore et dolore magna aliqua. Quis suspendisse ultrices gravida. 
-                            commodo viverra maecenas accumsan lacus vel facilisis.
+                            {about.description2}
                         </p>
 
                         {/* Feature Boxes exactly matching the target design */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                            {features.map((item, index) => (
+                            {about.features.map((item, index) => (
                                 <div
                                     key={index}
                                     className="group flex items-center gap-3 bg-[#EAF2EE] rounded-full px-5 py-3.5 hover:bg-[#0A7A51] transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
@@ -128,7 +117,7 @@ export default function AboutSection() {
 
                         {/* Read More Button with matching padding and font */}
                         <button className="mt-10 bg-[#0A7A51] hover:bg-[#0B2942] text-white font-bold text-[15px] py-3.5 px-9 rounded-[8px] transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer hover:scale-105 active:scale-95">
-                            Read More
+                            {about.buttonText}
                         </button>
 
                     </div>

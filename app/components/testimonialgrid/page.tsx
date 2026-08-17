@@ -4,38 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const testimonials = [
-    {
-        name: "Briten Stark",
-        role: "Founder of Drove",
-        content: "Aenean sollicitudin lorem bibendum auctor nisi elit consequat ipsum nec sagittis sem nibh id elit duis sedo odio sit amet nibh vulputate cursus a sit amet mauris morbi accumsan ipsum and many velit.",
-    },
-    {
-        name: "Johan Albas",
-        role: "Sales Manager",
-        content: "Aenean sollicitudin lorem bibendum auctor nisi elit consequat ipsum nec sagittis sem nibh id elit duis sedo odio sit amet nibh vulputate cursus a sit amet mauris morbi accumsan ipsum and many velit.",
-    },
-    {
-        name: "Jems Barlin",
-        role: "Director",
-        content: "Aenean sollicitudin lorem bibendum auctor nisi elit consequat ipsum nec sagittis sem nibh id elit duis sedo odio sit amet nibh vulputate cursus a sit amet mauris morbi accumsan ipsum and many velit.",
-    },
-    {
-        name: "Julian Nehar",
-        role: "Founder of Drove",
-        content: "Aenean sollicitudin lorem bibendum auctor nisi elit consequat ipsum nec sagittis sem nibh id elit duis sedo odio sit amet nibh vulputate cursus a sit amet mauris morbi accumsan ipsum and many velit.",
-    },
-    {
-        name: "Bril Hanc",
-        role: "Sales Manager",
-        content: "Aenean sollicitudin lorem bibendum auctor nisi elit consequat ipsum nec sagittis sem nibh id elit duis sedo odio sit amet nibh vulputate cursus a sit amet mauris morbi accumsan ipsum and many velit.",
-    },
-    {
-        name: "ANJ Carlos",
-        role: "Director",
-        content: "Aenean sollicitudin lorem bibendum auctor nisi elit consequat ipsum nec sagittis sem nibh id elit duis sedo odio sit amet nibh vulputate cursus a sit amet mauris morbi accumsan ipsum and many velit.",
-    }
-];
+import siteData from "@/src/data/data.json";
+
+const { testimonialGrid } = siteData;
+const testimonials = testimonialGrid.testimonials;
 
 export default function TestimonialGrid() {
     return (
@@ -50,7 +22,7 @@ export default function TestimonialGrid() {
                         viewport={{ once: true }}
                     >
                         <span className="text-[#1FA463] font-bold text-[14px] tracking-wide block mb-3">
-                            Testimonials
+                            {testimonialGrid.subtitle}
                         </span>
                     </motion.div>
                     <motion.h2 
@@ -60,7 +32,7 @@ export default function TestimonialGrid() {
                         transition={{ delay: 0.1 }}
                         className="text-[#0D2235] text-[32px] md:text-[44px] font-semibold leading-[1.2] tracking-tight relative inline-block"
                     >
-                        What Our Clients Says
+                        {testimonialGrid.title}
                         {/* Swirly underline simulation */}
                         <svg className="absolute -bottom-4 right-0 w-[120px] h-auto text-[#F3C2A3] -z-10 opacity-70" viewBox="0 0 100 20" fill="none">
                             <path d="M0 15 C 20 5, 50 20, 100 0" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="transparent" />

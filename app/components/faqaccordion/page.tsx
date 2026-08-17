@@ -4,48 +4,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
-const faqs = [
-    {
-        question: "Should you replace sponges or disinfect them?",
-        answer: "Edite per sociosqu felis quam ridiculus laoreet tempus, eleifend faucibus commodo. Laoreet mauris congue sodales interdum lobortis proin laoreet quis arcu nostra et nam primis dolor sagittis duis laoreet, ultrices habitasse diam quisque in auctor porta metus viverra curae maecenas iaculis tempo pulvinar vitae dictum lorem ipsum orci."
-    },
-    {
-        question: "How do you get stains off the walls without chipping the paint?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-        question: "Why doesn't my vacuum cleaner do a good job?",
-        answer: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-        question: "Is there a way to clean a stopped drain that's less gross?",
-        answer: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-    },
-    {
-        question: "How can I clean this neglected area so it looks brand new?",
-        answer: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-    },
-    {
-        question: "What do you do you have to move heavy furniture to vacuum?",
-        answer: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
-    },
-    {
-        question: "How do you treat different materials like marble or granite?",
-        answer: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
-    },
-    {
-        question: "Why do I need reports from all 3 credit bureaus?",
-        answer: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-    },
-    {
-        question: "Have you ever seen a co-worker What did you do?",
-        answer: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
-    },
-    {
-        question: "How much you need to clean a working space of 10 offices?",
-        answer: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
-    }
-];
+import siteData from "@/src/data/data.json";
+
+const { faq: { items: faqs } } = siteData;
 
 export default function FaqAccordion() {
     // Open the first item by default

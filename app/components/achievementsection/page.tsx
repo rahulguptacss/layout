@@ -1,29 +1,22 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { PartyPopper, Users, Award } from "lucide-react";
+import { PartyPopper, Users, Award, LucideIcon } from "lucide-react";
 import { motion, useInView, animate } from "framer-motion";
+import siteData from "@/src/data/data.json";
 
-const achievements = [
-    {
-        icon: PartyPopper,
-        value: "20",
-        title: "Years",
-        description: "We have more than 20+ years working experience.",
-    },
-    {
-        icon: Users,
-        value: "160",
-        title: "Employee",
-        description: "We have more than 160+ employees working near you.",
-    },
-    {
-        icon: Award,
-        value: "20",
-        title: "Awards",
-        description: "We have done many projects & get awards 20+ times.",
-    }
-];
+const { achievements } = siteData;
+
+const iconMap: Record<string, LucideIcon> = {
+    PartyPopper,
+    Users,
+    Award
+};
+
+const mappedAchievements = achievements.items.map(item => ({
+    ...item,
+    icon: iconMap[item.iconName] || PartyPopper
+}));
 
 function Counter({ value }: { value: string }) {
     const ref = useRef<HTMLSpanElement>(null);
@@ -53,7 +46,7 @@ export default function AchievementSection() {
         <section className="bg-white py-16 lg:py-20 relative overflow-hidden">
             <div className="max-w-[1320px] mx-auto px-5 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
-                    {achievements.map((item, index) => {
+                    {mappedAchievements.map((item, index) => {
                         const Icon = item.icon;
                         return (
                             <motion.div

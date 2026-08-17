@@ -2,7 +2,22 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, ChevronDown, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ChevronDown, Send, LucideIcon } from 'lucide-react';
+import siteData from "@/src/data/data.json";
+
+const { enquiry } = siteData;
+
+const iconMap: Record<string, LucideIcon> = {
+    phone: Phone,
+    mail: Mail,
+    "map-pin": MapPin,
+    clock: Clock
+};
+
+const mappedMethods = enquiry.contactMethods.map(item => ({
+    ...item,
+    icon: iconMap[item.iconName] || Phone
+}));
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -40,15 +55,15 @@ export default function EnquiryContent() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-[#1FA463] font-bold text-[13px] uppercase tracking-wider block mb-2"
                     >
-                        WE ARE HERE TO HELP
+                        {enquiry.subtitle}
                     </motion.span>
                     <h2 className="text-[32px] sm:text-[36px] md:text-[40px] font-extrabold text-[#0D2235] leading-tight mb-4">
-                        Send Us Your <span className="text-[#1FA463]">Enquiry</span>
+                        {enquiry.titleLine1} <span className="text-[#1FA463]">{enquiry.titleHighlight}</span>
                     </h2>
-                    <p className="text-gray-500 text-[14px] md:text-[15px] leading-relaxed px-4 sm:px-0">
-                        Have a question or need more information about our cleaning services?<br className="hidden md:block" />
-                        Fill out the form below and our team will get back to you as soon as possible.
-                    </p>
+                    <p 
+                        className="text-gray-500 text-[14px] md:text-[15px] leading-relaxed px-4 sm:px-0"
+                        dangerouslySetInnerHTML={{ __html: enquiry.description }}
+                    />
                 </motion.div>
 
                 <div className="flex flex-col lg:flex-row gap-5 lg:gap-6 items-stretch">
@@ -61,9 +76,9 @@ export default function EnquiryContent() {
                         transition={{ duration: 0.6 }}
                         className="w-full lg:w-[40%] bg-[#F3F7F5] rounded-2xl p-6 sm:p-8 flex flex-col group hover:shadow-[0_10px_30px_-10px_rgba(31,164,99,0.1)] transition-all duration-300"
                     >
-                        <h3 className="text-[20px] sm:text-[22px] font-bold text-[#14231E] mb-3 tracking-tight">Get In Touch</h3>
+                        <h3 className="text-[20px] sm:text-[22px] font-bold text-[#14231E] mb-3 tracking-tight">{enquiry.getInTouchTitle}</h3>
                         <p className="text-[#55635F] text-[14px] md:text-[14.5px] leading-relaxed mb-8">
-                            We're here to answer all your questions and provide the best cleaning solutions for your space.
+                            {enquiry.getInTouchDescription}
                         </p>
 
                         <motion.div 
@@ -73,55 +88,20 @@ export default function EnquiryContent() {
                             viewport={{ once: true }}
                             className="space-y-6 flex-grow flex flex-col justify-center"
                         >
-                            {/* Phone */}
-                            <motion.div variants={itemVariants} className="flex items-start gap-4 group/item">
-                                <div className="w-[45px] h-[45px] shrink-0 bg-[#E5EFE9] group-hover/item:bg-[#1FA463] group-hover/item:text-white rounded-full flex items-center justify-center text-[#1FA463] transition-colors duration-300">
-                                    <Phone size={20} strokeWidth={2} className="group-hover/item:scale-110 transition-transform duration-300" />
-                                </div>
-                                <div className="mt-0.5">
-                                    <h4 className="font-extrabold text-[#14231E] text-[15px] mb-0.5 group-hover/item:text-[#1FA463] transition-colors">Phone</h4>
-                                    <p className="text-[#55635F] text-[14px]">+1 (254) 567-8900</p>
-                                </div>
-                            </motion.div>
-
-                            {/* Email */}
-                            <motion.div variants={itemVariants} className="flex items-start gap-4 group/item">
-                                <div className="w-[45px] h-[45px] shrink-0 bg-[#E5EFE9] group-hover/item:bg-[#1FA463] group-hover/item:text-white rounded-full flex items-center justify-center text-[#1FA463] transition-colors duration-300">
-                                    <Mail size={20} strokeWidth={2} className="group-hover/item:scale-110 transition-transform duration-300" />
-                                </div>
-                                <div className="mt-0.5">
-                                    <h4 className="font-extrabold text-[#14231E] text-[15px] mb-0.5 group-hover/item:text-[#1FA463] transition-colors">Email</h4>
-                                    <p className="text-[#55635F] text-[14px]">hello@cleanpro.com</p>
-                                </div>
-                            </motion.div>
-
-                            {/* Location */}
-                            <motion.div variants={itemVariants} className="flex items-start gap-4 group/item">
-                                <div className="w-[45px] h-[45px] shrink-0 bg-[#E5EFE9] group-hover/item:bg-[#1FA463] group-hover/item:text-white rounded-full flex items-center justify-center text-[#1FA463] transition-colors duration-300">
-                                    <MapPin size={20} strokeWidth={2} className="group-hover/item:scale-110 transition-transform duration-300" />
-                                </div>
-                                <div className="mt-0.5">
-                                    <h4 className="font-extrabold text-[#14231E] text-[15px] mb-0.5 group-hover/item:text-[#1FA463] transition-colors">Location</h4>
-                                    <p className="text-[#55635F] text-[14px] leading-relaxed">
-                                        2976 Sunrise Avenue,<br />
-                                        Las Vegas, NV 89101
-                                    </p>
-                                </div>
-                            </motion.div>
-
-                            {/* Business Hours */}
-                            <motion.div variants={itemVariants} className="flex items-start gap-4 group/item">
-                                <div className="w-[45px] h-[45px] shrink-0 bg-[#E5EFE9] group-hover/item:bg-[#1FA463] group-hover/item:text-white rounded-full flex items-center justify-center text-[#1FA463] transition-colors duration-300">
-                                    <Clock size={20} strokeWidth={2} className="group-hover/item:scale-110 transition-transform duration-300" />
-                                </div>
-                                <div className="mt-0.5">
-                                    <h4 className="font-extrabold text-[#14231E] text-[15px] mb-0.5 group-hover/item:text-[#1FA463] transition-colors">Business Hours</h4>
-                                    <p className="text-[#55635F] text-[14px] leading-relaxed">
-                                        Mon - Sat: 08:00 AM - 06:00 PM<br />
-                                        Sunday: Closed
-                                    </p>
-                                </div>
-                            </motion.div>
+                            {mappedMethods.map((method, index) => {
+                                const Icon = method.icon;
+                                return (
+                                    <motion.div key={index} variants={itemVariants} className="flex items-start gap-4 group/item">
+                                        <div className="w-[45px] h-[45px] shrink-0 bg-[#E5EFE9] group-hover/item:bg-[#1FA463] group-hover/item:text-white rounded-full flex items-center justify-center text-[#1FA463] transition-colors duration-300">
+                                            <Icon size={20} strokeWidth={2} className="group-hover/item:scale-110 transition-transform duration-300" />
+                                        </div>
+                                        <div className="mt-0.5">
+                                            <h4 className="font-extrabold text-[#14231E] text-[15px] mb-0.5 group-hover/item:text-[#1FA463] transition-colors">{method.title}</h4>
+                                            <p className="text-[#55635F] text-[14px]" dangerouslySetInnerHTML={{ __html: method.description }} />
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
                         </motion.div>
                     </motion.div>
 
@@ -133,7 +113,7 @@ export default function EnquiryContent() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="w-full lg:w-[60%] bg-white rounded-2xl shadow-[0_5px_40px_-15px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_50px_-15px_rgba(0,0,0,0.12)] border border-gray-100 p-6 sm:p-8 flex flex-col transition-shadow duration-300"
                     >
-                        <h3 className="text-[20px] font-bold text-[#14231E] mb-6 tracking-tight">Enquiry Form</h3>
+                        <h3 className="text-[20px] font-bold text-[#14231E] mb-6 tracking-tight">{enquiry.formTitle}</h3>
 
                         <motion.form 
                             variants={containerVariants}

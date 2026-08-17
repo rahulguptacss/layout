@@ -4,50 +4,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
 
-const pricingPlans = [
-    {
-        name: "Basic Plan",
-        description: "Perfect for Residential Services",
-        price: "$80",
-        features: [
-            { text: "Fully Profetional Cleaner", included: true },
-            { text: "Living Room Cleaning", included: true },
-            { text: "Bed Room Cleaning", included: true },
-            { text: "Bathroom Cleaning", included: true },
-            { text: "Windows & Door Cleaning", included: false },
-            { text: "Roof Cleaning", included: false },
-            { text: "Kitchen Cleaning", included: false },
-        ]
-    },
-    {
-        name: "Smart Plan",
-        description: "Perfect for Large & Small Company",
-        price: "$150",
-        features: [
-            { text: "Fully Profetional Cleaner", included: true },
-            { text: "Living Room Cleaning", included: true },
-            { text: "Bed Room Cleaning", included: true },
-            { text: "Bathroom Cleaning", included: true },
-            { text: "Windows & Door Cleaning", included: true },
-            { text: "Roof Cleaning", included: true },
-            { text: "Kitchen Cleaning", included: false },
-        ]
-    },
-    {
-        name: "Silver Plan",
-        description: "Perfect for Large & Small Industrial",
-        price: "$250",
-        features: [
-            { text: "Fully Profetional Cleaner", included: true },
-            { text: "Living Room Cleaning", included: true },
-            { text: "Bed Room Cleaning", included: true },
-            { text: "Bathroom Cleaning", included: true },
-            { text: "Windows & Door Cleaning", included: true },
-            { text: "Roof Cleaning", included: true },
-            { text: "Kitchen Cleaning", included: true },
-        ]
-    }
-];
+import siteData from "@/src/data/data.json";
+
+const { pricing } = siteData;
 
 export default function PricingSection() {
     return (
@@ -62,7 +21,7 @@ export default function PricingSection() {
                         viewport={{ once: true }}
                     >
                         <span className="text-[#1FA463] font-bold text-[15px] tracking-wide block mb-3">
-                            Our Pricing
+                            {pricing.subtitle}
                         </span>
                     </motion.div>
                     <motion.h2 
@@ -72,13 +31,13 @@ export default function PricingSection() {
                         transition={{ delay: 0.1 }}
                         className="text-[#0D2235] text-[32px] md:text-[44px] font-semibold leading-[1.2] tracking-tight"
                     >
-                        Simple Plan For Everyone
+                        {pricing.title}
                     </motion.h2>
                 </div>
 
                 {/* Pricing Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {pricingPlans.map((plan, index) => (
+                    {pricing.plans.map((plan, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}

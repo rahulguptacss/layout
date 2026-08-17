@@ -10,44 +10,18 @@ import {
     BarChart3 
 } from "lucide-react";
 
-const partners = [
-    {
-        name: "GreenLeaf",
-        category: "NATURE CARE",
-        icon: Leaf,
-        color: "#22C55E", // Green
-    },
-    {
-        name: "Homey",
-        category: "REAL ESTATE",
-        icon: Home,
-        color: "#3B82F6", // Blue
-    },
-    {
-        name: "OfficeHub",
-        category: "COWORKING",
-        icon: Building2,
-        color: "#8B5CF6", // Purple
-    },
-    {
-        name: "Sparkle",
-        category: "CLEANING",
-        icon: Sparkles,
-        color: "#F97316", // Orange
-    },
-    {
-        name: "UrbanSpace",
-        category: "LIVING",
-        icon: Building,
-        color: "#6366F1", // Indigo
-    },
-    {
-        name: "BuildCon",
-        category: "CONSTRUCTION",
-        icon: BarChart3,
-        color: "#0EA5E9", // Light Blue
-    }
-];
+import siteData from "@/src/data/data.json";
+
+const { partners } = siteData;
+
+const iconMap: Record<string, any> = {
+    "leaf": Leaf,
+    "home": Home,
+    "building-2": Building2,
+    "sparkles": Sparkles,
+    "building": Building,
+    "bar-chart-3": BarChart3
+};
 
 export default function PartnersSection() {
     return (
@@ -102,7 +76,7 @@ export default function PartnersSection() {
                         viewport={{ once: true }}
                     >
                         <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
-                            Trusted By
+                            {partners.subtitle}
                         </span>
                     </motion.div>
                     <motion.h2 
@@ -112,7 +86,7 @@ export default function PartnersSection() {
                         transition={{ delay: 0.1 }}
                         className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight mb-4"
                     >
-                        Leading Brands & Partners
+                        {partners.title}
                     </motion.h2>
 
                     <motion.p 
@@ -122,14 +96,14 @@ export default function PartnersSection() {
                         transition={{ delay: 0.2 }}
                         className="text-[#6B7280] text-[15px] md:text-[17px] leading-relaxed max-w-lg mx-auto"
                     >
-                        We are proud to be trusted by innovative companies and organizations worldwide.
+                        {partners.description}
                     </motion.p>
                 </div>
 
                 {/* Partners Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5">
-                    {partners.map((partner, index) => {
-                        const Icon = partner.icon;
+                    {partners.items.map((partner, index) => {
+                        const Icon = iconMap[partner.iconName] || Building;
                         return (
                             <motion.div
                                 key={index}

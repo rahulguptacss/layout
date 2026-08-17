@@ -4,6 +4,9 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { User, Mail, ChevronDown } from 'lucide-react';
+import siteData from "@/src/data/data.json";
+
+const { quotes } = siteData;
 
 export default function QuotesContent() {
     return (
@@ -48,15 +51,15 @@ export default function QuotesContent() {
                         className="w-full md:w-1/2 p-8 md:p-12 lg:p-14 flex flex-col justify-center bg-white shadow-[0_0_30px_rgba(0,0,0,0.08)] rounded-2xl m-4 md:m-8"
                     >
                         <div className="mb-6">
-                            <span className="text-[#1FA463] font-bold text-[13px] mb-2 block">Need Any Help or Support</span>
-                            <h2 className="text-[24px] md:text-[28px] leading-tight font-extrabold text-[#0D2235]">Contact Us For Better Help & Services</h2>
+                            <span className="text-[#1FA463] font-bold text-[13px] mb-2 block">{quotes.subtitle}</span>
+                            <h2 className="text-[24px] md:text-[28px] leading-tight font-extrabold text-[#0D2235]">{quotes.title}</h2>
                         </div>
 
                         <form className="space-y-4">
                             <div className="relative">
                                 <input 
                                     type="text" 
-                                    placeholder="Your Name" 
+                                    placeholder={quotes.placeholders.name} 
                                     className="w-full h-12 px-5 bg-[#F6F8FB] rounded-md focus:outline-none focus:ring-1 focus:ring-[#1FA463] text-[14px] text-[#333333] placeholder:text-gray-400"
                                 />
                                 <User className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
@@ -65,7 +68,7 @@ export default function QuotesContent() {
                             <div className="relative">
                                 <input 
                                     type="email" 
-                                    placeholder="Your Email" 
+                                    placeholder={quotes.placeholders.email} 
                                     className="w-full h-12 px-5 bg-[#F6F8FB] rounded-md focus:outline-none focus:ring-1 focus:ring-[#1FA463] text-[14px] text-[#333333] placeholder:text-gray-400"
                                 />
                                 <Mail className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
@@ -76,17 +79,17 @@ export default function QuotesContent() {
                                     className="w-full h-12 px-5 bg-[#F6F8FB] rounded-md focus:outline-none focus:ring-1 focus:ring-[#1FA463] text-[14px] text-gray-500 appearance-none cursor-pointer"
                                     defaultValue=""
                                 >
-                                    <option value="" disabled hidden>Enter Name of Company / House</option>
-                                    <option value="company">Company</option>
-                                    <option value="house">House</option>
-                                    <option value="other">Other</option>
+                                    <option value="" disabled hidden>{quotes.placeholders.select}</option>
+                                    {quotes.options.map((opt, i) => (
+                                        <option key={i} value={opt.value}>{opt.label}</option>
+                                    ))}
                                 </select>
                                 <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
                             </div>
 
                             <div className="relative">
                                 <textarea 
-                                    placeholder="Write Message" 
+                                    placeholder={quotes.placeholders.message} 
                                     rows={4}
                                     className="w-full p-5 bg-[#F6F8FB] rounded-md focus:outline-none focus:ring-1 focus:ring-[#1FA463] text-[14px] text-[#333333] placeholder:text-gray-400 resize-none min-h-[100px]"
                                 ></textarea>
@@ -96,7 +99,7 @@ export default function QuotesContent() {
                                 type="button"
                                 className="bg-[#F8E268] hover:bg-[#E5D154] text-[#0D2235] font-bold text-[14px] px-8 py-3 rounded-full transition-all inline-block mt-2"
                             >
-                                Send Message
+                                {quotes.buttonText}
                             </button>
                         </form>
                     </motion.div>

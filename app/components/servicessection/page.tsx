@@ -19,6 +19,14 @@ import {
     Biohazard,
     LucideIcon,
 } from "lucide-react";
+import siteData from "@/src/data/data.json";
+
+const iconMap: Record<string, LucideIcon> = {
+    PaintRoller,
+    AppWindow,
+    House,
+    Biohazard,
+};
 
 /* ===============================
    Types & Interfaces
@@ -36,64 +44,12 @@ interface ServiceItem {
    Services Data
 ================================ */
 
-const services: ServiceItem[] = [
-    {
-        id: 1,
-        title: "Floor Cleaning",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
-        image: "/services/service-1.png",
-        icon: PaintRoller,
-    },
-    {
-        id: 2,
-        title: "Window Cleaning",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
-        image: "/services/service-2.png",
-        icon: AppWindow,
-    },
-    {
-        id: 3,
-        title: "Domestic Sanitizing",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
-        image: "/services/service-3.png",
-        icon: House,
-    },
-    {
-        id: 4,
-        title: "Corona Control",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
-        image: "/services/service-4.png",
-        icon: Biohazard,
-    },
-    {
-        id: 5,
-        title: "Floor Cleaning",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
-        image: "/services/service-1.png",
-        icon: PaintRoller,
-    },
-    {
-        id: 6,
-        title: "Window Cleaning",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
-        image: "/services/service-2.png",
-        icon: AppWindow,
-    },
-    {
-        id: 7,
-        title: "Domestic Sanitizing",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
-        image: "/services/service-3.png",
-        icon: House,
-    },
-    {
-        id: 8,
-        title: "Corona Control",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod sis.",
-        image: "/services/service-4.png",
-        icon: Biohazard,
-    },
-];
+const { services } = siteData;
+
+const mappedServices: ServiceItem[] = services.items.map(item => ({
+    ...item,
+    icon: iconMap[item.iconName] || PaintRoller // fallback icon
+}));
 
 /* ===============================
    Main Component
@@ -136,7 +92,7 @@ export default function ServicesSection({ layout = 'grid' }: ServicesSectionProp
                             }}
                             className="!pb-10 !px-2"
                         >
-                            {services.map((service, index) => (
+                            {mappedServices.map((service, index) => (
                                 <SwiperSlide key={service.id}>
                                     <ServiceCard
                                         service={service}
@@ -148,7 +104,7 @@ export default function ServicesSection({ layout = 'grid' }: ServicesSectionProp
                     </div>
                 ) : (
                     <div className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-                        {services.map((service, index) => (
+                        {mappedServices.map((service, index) => (
                             <ServiceCard
                                 key={service.id}
                                 service={service}
@@ -170,11 +126,11 @@ function SectionHeader() {
     return (
         <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-[#22A46D] font-bold text-[18px] tracking-wide">
-                Our Services
+                {services.subtitle}
             </span>
 
             <h2 className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight">
-                Commercial Disinfection Services
+                {services.title}
             </h2>
         </div>
     );

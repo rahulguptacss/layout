@@ -5,33 +5,10 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-const projects = [
-    {
-        title: "Office Cleaning",
-        category: "Office",
-        image: "/services/service-1.png",
-    },
-    {
-        title: "Sanitizing Home",
-        category: "Home",
-        image: "/services/service-2.png",
-    },
-    {
-        title: "Office Cleaning",
-        category: "Office",
-        image: "/services/service-3.png",
-    },
-    {
-        title: "Kitchen Cleaning",
-        category: "Kitchen",
-        image: "/services/service-4.png",
-    },
-    {
-        title: "Window Cleaning",
-        category: "Commercial",
-        image: "/services/service-1.png",
-    }
-];
+import siteData from "@/src/data/data.json";
+
+const { project } = siteData;
+const projects = project.projects;
 
 export default function ProjectSection() {
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -66,7 +43,7 @@ export default function ProjectSection() {
                             viewport={{ once: true }}
                             className="text-white font-semibold text-[16px] md:text-[17px] mb-3"
                         >
-                            Recent Projects
+                            {project.subtitle}
                         </motion.h4>
                         <motion.h2 
                             initial={{ opacity: 0, y: 20 }}
@@ -75,7 +52,7 @@ export default function ProjectSection() {
                             transition={{ delay: 0.1 }}
                             className="text-white text-[38px] md:text-[46px] lg:text-[48px] font-semibold leading-[1.15] tracking-tight"
                         >
-                            Let's See Our Recent Project Case
+                            {project.title}
                         </motion.h2>
                     </div>
 

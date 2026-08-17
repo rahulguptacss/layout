@@ -4,7 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
     MapPinned, PhoneCall, Mail,
-    User, FileText, PenLine, Send, Phone, ArrowRight
+    User, FileText, PenLine, Send, Phone, ArrowRight,
+    LucideIcon
 } from 'lucide-react';
 import {
     FaFacebookF as Facebook,
@@ -13,6 +14,16 @@ import {
     FaLinkedinIn as Linkedin,
 } from 'react-icons/fa';
 
+import siteData from "@/src/data/data.json";
+
+const { contact } = siteData;
+
+const iconMap: Record<string, LucideIcon> = {
+    "map-pinned": MapPinned,
+    "phone-call": PhoneCall,
+    "mail": Mail
+};
+
 export default function ContactContent() {
     return (
         <>
@@ -20,65 +31,36 @@ export default function ContactContent() {
             <section className="pt-8 pb-14 md:pt-10 md:pb-16 bg-white">
                 <div className="max-w-[1140px] mx-auto px-4 lg:px-6">
                 <div className="text-center mb-10 md:mb-12">
-                    <h5 className="text-[#1FA463] text-[14px] font-bold tracking-widest uppercase mb-3">Contact Information</h5>
+                    <h5 className="text-[#1FA463] text-[14px] font-bold tracking-widest uppercase mb-3">{contact.locationSubtitle}</h5>
                     <h2 className="text-[#0D2235] text-[32px] md:text-[44px] font-semibold max-w-2xl mx-auto leading-tight">
-                        We Want To Share Our Location To Find Us Easily
+                        {contact.locationTitle}
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                    {/* Office Address Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="bg-white hover:bg-[#1FA463] text-[#0D2235] hover:text-white rounded-md p-10 flex flex-col items-center text-center shadow-[0_5px_30px_rgba(0,0,0,0.05)] border border-[#EAEAEA] hover:border-[#1FA463] transition-all duration-500 group h-full cursor-pointer hover:-translate-y-2"
-                    >
-                        <div className="w-[80px] h-[80px] rounded-full border border-[#1FA463]/30 group-hover:border-white/30 flex items-center justify-center mb-6 text-[#1FA463] group-hover:text-white transition-all duration-500">
-                            <MapPinned size={36} strokeWidth={1.5} />
-                        </div>
-                        <h3 className="text-[22px] font-extrabold mb-4 transition-colors duration-500">Office Address</h3>
-                        <p className="text-gray-500 group-hover:text-white/90 text-[15px] leading-relaxed max-w-[200px] transition-colors duration-500">
-                            28 Benin, south of Niger #5 San Francisco USA
-                        </p>
-                    </motion.div>
-
-                    {/* Phone Number Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="bg-white hover:bg-[#1FA463] text-[#0D2235] hover:text-white rounded-md p-10 flex flex-col items-center text-center shadow-[0_5px_30px_rgba(0,0,0,0.05)] border border-[#EAEAEA] hover:border-[#1FA463] transition-all duration-500 group h-full cursor-pointer hover:-translate-y-2"
-                    >
-                        <div className="w-[80px] h-[80px] rounded-full border border-[#1FA463]/30 group-hover:border-white/30 flex items-center justify-center mb-6 text-[#1FA463] group-hover:text-white transition-all duration-500">
-                            <PhoneCall size={36} strokeWidth={1.5} />
-                        </div>
-                        <h3 className="text-[22px] font-extrabold mb-4 transition-colors duration-500">Phone Number</h3>
-                        <div className="flex flex-col gap-1 text-gray-500 group-hover:text-white/90 text-[15px] transition-colors duration-500">
-                            <p>+00154 789 8765</p>
-                            <p>+00154 789 9241</p>
-                        </div>
-                    </motion.div>
-
-                    {/* Mail Address Card */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="bg-white hover:bg-[#1FA463] text-[#0D2235] hover:text-white rounded-md p-10 flex flex-col items-center text-center shadow-[0_5px_30px_rgba(0,0,0,0.05)] border border-[#EAEAEA] hover:border-[#1FA463] transition-all duration-500 group h-full cursor-pointer hover:-translate-y-2"
-                    >
-                        <div className="w-[80px] h-[80px] rounded-full border border-[#1FA463]/30 group-hover:border-white/30 flex items-center justify-center mb-6 text-[#1FA463] group-hover:text-white transition-all duration-500">
-                            <Mail size={36} strokeWidth={1.5} />
-                        </div>
-                        <h3 className="text-[22px] font-extrabold mb-4 transition-colors duration-500">Mail Address</h3>
-                        <div className="flex flex-col gap-1 text-gray-500 group-hover:text-white/90 text-[15px] transition-colors duration-500">
-                            <p>admin@gmail.com</p>
-                            <p>admin@gmail.com</p>
-                        </div>
-                    </motion.div>
+                    {contact.locations.map((loc, index) => {
+                        const Icon = iconMap[loc.iconName] || MapPinned;
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 * (index + 1) }}
+                                className="bg-white hover:bg-[#1FA463] text-[#0D2235] hover:text-white rounded-md p-10 flex flex-col items-center text-center shadow-[0_5px_30px_rgba(0,0,0,0.05)] border border-[#EAEAEA] hover:border-[#1FA463] transition-all duration-500 group h-full cursor-pointer hover:-translate-y-2"
+                            >
+                                <div className="w-[80px] h-[80px] rounded-full border border-[#1FA463]/30 group-hover:border-white/30 flex items-center justify-center mb-6 text-[#1FA463] group-hover:text-white transition-all duration-500">
+                                    <Icon size={36} strokeWidth={1.5} />
+                                </div>
+                                <h3 className="text-[22px] font-extrabold mb-4 transition-colors duration-500">{loc.title}</h3>
+                                <div className="flex flex-col gap-1 text-gray-500 group-hover:text-white/90 text-[15px] leading-relaxed max-w-[200px] transition-colors duration-500">
+                                    {loc.lines.map((line, i) => (
+                                        <p key={i}>{line}</p>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
@@ -95,9 +77,9 @@ export default function ContactContent() {
                         viewport={{ once: true }}
                         className="lg:pr-10"
                     >
-                        <h5 className="text-[#1FA463] text-[14px] font-bold tracking-widest uppercase mb-4">Contact Form</h5>
+                        <h5 className="text-[#1FA463] text-[14px] font-bold tracking-widest uppercase mb-4">{contact.formSubtitle}</h5>
                         <h2 className="text-[#0D2235] text-[32px] md:text-[44px] font-semibold leading-[1.2] mb-10">
-                            Cool Project? Get in Touch! Will Contact You Soon
+                            {contact.formTitle}
                         </h2>
 
                         <div className="flex items-center gap-4">

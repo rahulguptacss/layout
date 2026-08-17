@@ -12,51 +12,18 @@ import {
     LucideIcon
 } from "lucide-react";
 
-interface IndustryItem {
-    id: number;
-    title: string;
-    description: string;
-    icon: LucideIcon;
-}
+import siteData from "@/src/data/data.json";
 
-const industries: IndustryItem[] = [
-    {
-        id: 1,
-        title: "Commercial Offices",
-        description: "We keep offices clean, organized, and productive for your team and clients.",
-        icon: Building2,
-    },
-    {
-        id: 2,
-        title: "Industrial Facilities",
-        description: "From factories to warehouses, we handle heavy-duty cleaning with safety and precision.",
-        icon: Factory,
-    },
-    {
-        id: 3,
-        title: "Healthcare Facilities",
-        description: "We follow strict hygiene standards to ensure a safe and healthy environment.",
-        icon: PlusCircle,
-    },
-    {
-        id: 4,
-        title: "Educational Institutions",
-        description: "We maintain clean and hygienic schools, colleges, and universities for better learning.",
-        icon: GraduationCap,
-    },
-    {
-        id: 5,
-        title: "Retail & Shopping Centers",
-        description: "We create clean, welcoming spaces that leave a lasting impression on your customers.",
-        icon: ShoppingCart,
-    },
-    {
-        id: 6,
-        title: "Hotels & Hospitality",
-        description: "We deliver exceptional cleanliness to enhance guest comfort and satisfaction.",
-        icon: Building,
-    },
-];
+const { industries } = siteData;
+
+const iconMap: Record<string, LucideIcon> = {
+    "building-2": Building2,
+    "factory": Factory,
+    "plus-circle": PlusCircle,
+    "graduation-cap": GraduationCap,
+    "shopping-cart": ShoppingCart,
+    "building": Building
+};
 
 export default function IndustriesContent() {
     return (
@@ -67,22 +34,22 @@ export default function IndustriesContent() {
                     <div className="flex items-center justify-center gap-4 mb-4">
                         <span className="w-12 h-[2px] bg-[#0A7A51]"></span>
                         <span className="text-[#0A7A51] font-bold uppercase tracking-wider text-[15px]">
-                            Industries We Serve
+                            {industries.subtitle}
                         </span>
                         <span className="w-12 h-[2px] bg-[#0A7A51]"></span>
                     </div>
                     <h2 className="text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight mb-6">
-                        Clean Solutions for Every Industry
+                        {industries.title}
                     </h2>
                     <p className="text-[#6B7280] text-[16px] leading-[26px] max-w-2xl mx-auto">
-                        We provide professional cleaning services tailored to the unique needs of different industries. Our expertise ensures a cleaner, safer and healthier environment.
+                        {industries.description}
                     </p>
                 </div>
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {industries.map((item, index) => {
-                        const Icon = item.icon;
+                    {industries.items.map((item, index) => {
+                        const Icon = iconMap[item.iconName] || Building;
                         return (
                             <motion.div
                                 key={item.id}

@@ -9,36 +9,10 @@ import {
     ChevronDown,
     PhoneCall,
 } from "lucide-react";
+import siteData from "@/src/data/data.json";
 
-type NavLink = {
-    title: string;
-    href: string;
-    dropdown?: boolean;
-    subLinks?: { title: string; href: string; }[];
-};
-
-const navLinks: NavLink[] = [
-    { title: "Home", href: "/" },
-    { 
-        title: "About Us", 
-        href: "/about",
-        dropdown: true,
-        subLinks: [
-            { title: "Pricing", href: "/pricing" },
-            { title: "Testimonials", href: "/testimonials" },
-            { title: "Faqs", href: "/faqs" },
-            { title: "Awards", href: "/awards" },
-            { title: "Our Team", href: "/team" },
-            { title: "Career", href: "/career" },
-            { title: "Enquiry", href: "/enquiry" },
-            { title: "Industries We Serve", href: "/industries" }
-        ]
-    },
-    { title: "Services", href: "/services" },
-    { title: "Projects", href: "/projects" },
-    { title: "Blog", href: "/blog" },
-    { title: "Contact Us", href: "/contact" },
-];
+const { header } = siteData;
+const navLinks = header.navLinks;
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -104,19 +78,19 @@ export default function Header() {
                             </div>
                             <div className="flex flex-col justify-center">
                                 <p className="text-[13px] text-gray-500 font-semibold leading-tight mb-0.5">
-                                    Call Anytime
+                                    {header.phoneLabel}
                                 </p>
                                 <a
-                                    href="tel:+12545678900"
+                                    href={`tel:${header.phoneNumber.replace(/[^0-9+]/g, '')}`}
                                     className="font-extrabold text-[#0D2235] text-[15px] leading-tight"
                                 >
-                                    +1 (254) 567-8900
+                                    {header.phoneNumber}
                                 </a>
                             </div>
                         </div>
 
                         <Link href="/quotes" className="bg-[#1FA463] hover:bg-[#18804d] text-white px-7 py-3 rounded-full font-bold text-[15px] transition-colors shadow-sm inline-block">
-                            Get a Quote
+                            {header.buttonText}
                         </Link>
                     </div>
 
@@ -190,15 +164,15 @@ export default function Header() {
                                 </div>
                                 <div>
                                     <p className="text-[13px] text-gray-500 font-semibold">
-                                        Call Anytime
+                                        {header.phoneLabel}
                                     </p>
                                     <p className="font-extrabold text-[#0D2235] text-[15px]">
-                                        +1 (254) 567-8900
+                                        {header.phoneNumber}
                                     </p>
                                 </div>
                             </div>
                             <Link href="/quotes" className="w-full h-12 rounded-full bg-[#1FA463] hover:bg-[#18804d] text-white font-bold text-[15px] transition-colors flex items-center justify-center">
-                                Get a Quote
+                                {header.buttonText}
                             </Link>
                         </div>
                     </nav>

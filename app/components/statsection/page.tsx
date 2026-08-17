@@ -4,28 +4,16 @@ import { useEffect, useState, useRef } from "react";
 import { Users, ThumbsUp, ClipboardCheck, Award } from "lucide-react";
 import { motion, useInView, animate, Variants } from "framer-motion";
 
-const stats = [
-    {
-        icon: Users,
-        value: "20+",
-        title: "Qualified Workers",
-    },
-    {
-        icon: ThumbsUp,
-        value: "4.8",
-        title: "Our Average Rating",
-    },
-    {
-        icon: ClipboardCheck,
-        value: "500+",
-        title: "Projects Completed",
-    },
-    {
-        icon: Award,
-        value: "5+",
-        title: "Years on the Market",
-    },
-];
+import siteData from "@/src/data/data.json";
+
+const { stat } = siteData;
+
+const iconMap: Record<string, any> = {
+    "users": Users,
+    "thumbs-up": ThumbsUp,
+    "clipboard-check": ClipboardCheck,
+    "award": Award
+};
 
 function Counter({ value }: { value: string }) {
     const ref = useRef<HTMLSpanElement>(null);
@@ -82,8 +70,8 @@ export default function StatsSection() {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-50px" }}
                 >
-                    {stats.map((item, index) => {
-                        const Icon = item.icon;
+                    {stat.stats.map((item, index) => {
+                        const Icon = iconMap[item.iconName] || Users;
 
                         return (
                             <motion.div

@@ -7,48 +7,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const teamMembers = [
-    {
-        name: "Jack Farnes",
-        role: "Head of Cleaner",
-        image: "/team/1.jpg"
-    },
-    {
-        name: "Farnej Dev",
-        role: "Cleaner",
-        image: "/team/2.jpg"
-    },
-    {
-        name: "Jack Moris",
-        role: "Assistant",
-        image: "/team/3.jpg"
-    },
-    {
-        name: "Emily Stone",
-        role: "Housekeeping Expert",
-        image: "/team/4.jpg"
-    },
-    {
-        name: "Jack Farnes",
-        role: "Head of Cleaner",
-        image: "/team/1.jpg"
-    },
-    {
-        name: "Farnej Dev",
-        role: "Cleaner",
-        image: "/team/2.jpg"
-    },
-    {
-        name: "Jack Moris",
-        role: "Assistant",
-        image: "/team/3.jpg"
-    },
-    {
-        name: "Emily Stone",
-        role: "Housekeeping Expert",
-        image: "/team/4.jpg"
-    }
-];
+import siteData from "@/src/data/data.json";
+
+const { team } = siteData;
+const teamMembers = team.members;
 
 interface TeamSectionProps {
     limit?: number;
@@ -69,7 +31,7 @@ export default function TeamSection({ limit, layout = 'grid' }: TeamSectionProps
                         viewport={{ once: true, margin: "-50px" }}
                         className="text-[#078B55] font-bold text-[16px] md:text-[18px] mb-2 block"
                     >
-                        Our Team
+                        {team.subtitle}
                     </motion.span>
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
@@ -78,7 +40,7 @@ export default function TeamSection({ limit, layout = 'grid' }: TeamSectionProps
                         transition={{ delay: 0.1 }}
                         className="text-[#0D2235] text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-tight"
                     >
-                        Our Expert Team Member
+                        {team.title}
                     </motion.h2>
                 </div>
 
