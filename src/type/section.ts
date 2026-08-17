@@ -230,7 +230,11 @@ export interface SitemapData {
         title: string;
         subtitle: string;
         iconName: string;
-        items: string[];
+        href: string;
+        items: {
+            label: string;
+            href: string;
+        }[];
     }[];
 }
 

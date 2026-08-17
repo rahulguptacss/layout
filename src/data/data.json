@@ -774,71 +774,164 @@
         "title": "About Us",
         "subtitle": "Know more about us",
         "iconName": "users",
+        "href": "/about",
         "items": [
-          "Our Story",
-          "Our Mission",
-          "Our Team",
-          "Certifications",
-          "Careers"
+          {
+            "label": "Our Story",
+            "href": "/about"
+          },
+          {
+            "label": "Our Mission",
+            "href": "/about"
+          },
+          {
+            "label": "Our Team",
+            "href": "/team"
+          },
+          {
+            "label": "Certifications",
+            "href": "/awards"
+          },
+          {
+            "label": "Careers",
+            "href": "/career"
+          }
         ]
       },
       {
         "title": "Services",
         "subtitle": "What we offer",
         "iconName": "sparkles",
+        "href": "/services",
         "items": [
-          "House Cleaning",
-          "Office Cleaning",
-          "Deep Cleaning",
-          "Carpet Cleaning",
-          "Sanitization",
-          "Pest Control",
-          "Window Cleaning"
+          {
+            "label": "House Cleaning",
+            "href": "/services"
+          },
+          {
+            "label": "Office Cleaning",
+            "href": "/services"
+          },
+          {
+            "label": "Deep Cleaning",
+            "href": "/services"
+          },
+          {
+            "label": "Carpet Cleaning",
+            "href": "/services"
+          },
+          {
+            "label": "Sanitization",
+            "href": "/services"
+          },
+          {
+            "label": "Pest Control",
+            "href": "/services"
+          },
+          {
+            "label": "Window Cleaning",
+            "href": "/services"
+          }
         ]
       },
       {
         "title": "Projects",
         "subtitle": "Our completed work",
         "iconName": "briefcase",
+        "href": "/projects",
         "items": [
-          "Residential Projects",
-          "Commercial Projects",
-          "Gallery",
-          "Case Studies"
+          {
+            "label": "Residential Projects",
+            "href": "/projects"
+          },
+          {
+            "label": "Commercial Projects",
+            "href": "/projects"
+          },
+          {
+            "label": "Gallery",
+            "href": "/projects"
+          },
+          {
+            "label": "Case Studies",
+            "href": "/projects"
+          }
         ]
       },
       {
         "title": "Pages",
         "subtitle": "Important pages",
         "iconName": "file-text",
+        "href": "#",
         "items": [
-          "Testimonials",
-          "FAQs",
-          "Pricing",
-          "Sitemap",
-          "Terms & Conditions",
-          "Privacy Policy",
-          "Request a Quote"
+          {
+            "label": "Testimonials",
+            "href": "/testimonials"
+          },
+          {
+            "label": "FAQs",
+            "href": "/faqs"
+          },
+          {
+            "label": "Pricing",
+            "href": "/pricing"
+          },
+          {
+            "label": "Sitemap",
+            "href": "/sitemap"
+          },
+          {
+            "label": "Terms & Conditions",
+            "href": "/terms-conditions"
+          },
+          {
+            "label": "Privacy Policy",
+            "href": "/privacy-policy"
+          },
+          {
+            "label": "Request a Quote",
+            "href": "/quotes"
+          }
         ]
       },
       {
         "title": "Blog",
         "subtitle": "Latest updates",
         "iconName": "edit",
+        "href": "/blog",
         "items": [
-          "Cleaning Tips",
-          "Industry News",
-          "Our Blog"
+          {
+            "label": "Cleaning Tips",
+            "href": "/blog"
+          },
+          {
+            "label": "Industry News",
+            "href": "/blog"
+          },
+          {
+            "label": "Our Blog",
+            "href": "/blog"
+          }
         ]
       },
       {
         "title": "Contact Us",
         "subtitle": "Get in touch",
         "iconName": "phone-call",
+        "href": "/contact",
         "items": [
-          "Contact Form",
-          "Our Location",
-          "Support"
+          {
+            "label": "Contact Form",
+            "href": "/contact"
+          },
+          {
+            "label": "Our Location",
+            "href": "/contact"
+          },
+          {
+            "label": "Support",
+            "href": "/contact"
+          }
         ]
       }
     ]
