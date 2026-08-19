@@ -28,7 +28,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative bg-cover bg-center bg-no-repeat h-[calc(100vh-110px)] min-h-[600px] max-h-[850px] flex items-center overflow-hidden"
+            className="relative bg-cover bg-center bg-no-repeat h-[calc(100vh-120px)] min-h-[600px] max-h-[800px] flex items-center overflow-hidden"
             style={{
                 backgroundImage: `url('${hero.backgroundImage}')`,
             }}
@@ -37,7 +37,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
 
             {/* Content */}
-            <div className="relative z-10 max-w-[1320px] mx-auto w-full px-5 md:px-12 lg:px-24 xl:px-32">
+            <div className="relative z-10 max-w-[1320px] mx-auto w-full px-5 md:px-8 lg:px-12 xl:px-16">
                 <motion.div
                     className="max-w-[600px]"
                     variants={containerVariants}

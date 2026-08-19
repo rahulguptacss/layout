@@ -183,7 +183,9 @@ export default function Footer() {
                     className="border-t border-[#3a3a3a] mt-12"
                 >
                     <div className="py-6 flex flex-col-reverse md:flex-row justify-between items-center gap-4">
-                        <p className="text-[#999] text-[15px] text-center md:text-left mt-4 md:mt-0" dangerouslySetInnerHTML={{ __html: footer.copyright.replace('CleanPro', '<span class="text-white font-bold">CleanPro</span>').replace('Cssfounder', '<span class="text-[#16A361] font-bold">Cssfounder</span>') }} />
+                        <p className="text-[#999] text-[15px] text-center md:text-left mt-4 md:mt-0">
+                            Copyright © 2026. All rights reserved. Powered by <a href="https://lestow.com/" target="_blank" rel="noopener noreferrer" className="text-[#16A361] hover:text-white transition-colors font-bold">Lestow</a>
+                        </p>
                         <div className="flex items-center flex-wrap justify-center gap-4 md:gap-6">
                             {footer.footerLinks.map((item) => (
                                 <Link key={item.label} href={item.href} className="text-[#999] text-[15px] hover:text-[#16A361] transition-colors whitespace-nowrap">
