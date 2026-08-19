@@ -30,6 +30,7 @@ export default function TeamMemberSkills() {
                                 src={skillsSection.image} 
                                 alt={skillsSection.title}
                                 fill
+                                sizes="(max-w-768px) 100vw, 50vw"
                                 className="object-cover"
                             />
                         </div>

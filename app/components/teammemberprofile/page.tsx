@@ -31,6 +31,7 @@ export default function TeamMemberProfile() {
                                     src={profile.image} 
                                     alt={profile.name}
                                     fill
+                                    sizes="(max-w-768px) 100vw, 50vw"
                                     className="object-cover"
                                 />
                             </div>

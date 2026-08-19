@@ -37,6 +37,7 @@ export default function QuotesContent() {
                             src="/illustration-quotes.png" 
                             alt="Cleaning Illustration" 
                             fill
+                            sizes="(max-w-768px) 100vw, 50vw"
                             className="object-contain md:object-left"
                             style={{ padding: '0px' }}
                         />

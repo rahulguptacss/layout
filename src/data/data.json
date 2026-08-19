@@ -1497,7 +1497,7 @@
   },
   "sidebar": {
     "searchTitle": "Search",
-    "searchPlaceholder": "Search In blog",
+    "searchPlaceholder": "Search In project",
     "categoriesTitle": "Categories",
     "categories": [
       "House Cleaning",

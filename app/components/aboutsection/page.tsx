@@ -16,7 +16,7 @@ const { about } = siteData;
 
 export default function AboutSection() {
     return (
-        <section className="relative overflow-hidden bg-white py-16 md:py-20 lg:py-24">
+        <section className="relative overflow-hidden bg-white py-10 md:py-12 lg:py-16">
             <div className="max-w-[1320px] mx-auto px-5 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-14 xl:gap-20">
                     
@@ -80,21 +80,21 @@ export default function AboutSection() {
                         </span>
 
                         {/* Heading exactly split like the target design */}
-                        <h2 className="mt-3 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight">
+                        <h2 className="mt-2 text-[#0B2942] text-3xl sm:text-4xl md:text-[45px] font-semibold leading-tight tracking-tight">
                             <span className="whitespace-nowrap">{about.titleLine1}</span> <br className="hidden sm:block" />
                             {about.titleLine2}
                         </h2>
 
-                        <p className="mt-6 text-[#6B7280] text-[15px] leading-[26px]">
+                        <p className="mt-4 text-[#6B7280] text-[15px] leading-[26px]">
                             {about.description1}
                         </p>
 
-                        <p className="mt-4 text-[#6B7280] text-[15px] leading-[26px]">
+                        <p className="mt-3 text-[#6B7280] text-[15px] leading-[26px]">
                             {about.description2}
                         </p>
 
                         {/* Feature Boxes exactly matching the target design */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
                             {about.features.map((item, index) => (
                                 <div
                                     key={index}
@@ -116,7 +116,7 @@ export default function AboutSection() {
                         </div>
 
                         {/* Read More Button with matching padding and font */}
-                        <button className="mt-10 bg-[#0A7A51] hover:bg-[#0B2942] text-white font-bold text-[15px] py-3.5 px-9 rounded-[8px] transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer hover:scale-105 active:scale-95">
+                        <button className="mt-7 bg-[#0A7A51] hover:bg-[#0B2942] text-white font-bold text-[15px] py-3.5 px-9 rounded-[8px] transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer hover:scale-105 active:scale-95">
                             {about.buttonText}
                         </button>
 

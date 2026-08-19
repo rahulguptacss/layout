@@ -40,25 +40,7 @@ export default function Sidebar() {
                 </ul>
             </div>
 
-            {/* Related Post Widget */}
-            <div className="bg-white shadow-sm p-7">
-                <h4 className="text-[#0D2235] text-[18px] font-bold mb-6">{sidebar.relatedPostTitle}</h4>
-                <div className="space-y-5">
-                    {sidebar.relatedPosts.map((post, i) => (
-                        <a href="#" key={i} className="flex items-center gap-4 group">
-                            <div className="w-[70px] h-[70px] bg-gray-200 overflow-hidden shrink-0">
-                                <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-                            </div>
-                            <div>
-                                <span className="text-gray-500 text-[12px] mb-1 block">{post.date}</span>
-                                <h5 className="text-[#0D2235] text-[14px] font-bold group-hover:text-[#1FA463] transition-colors leading-[1.4]">
-                                    {post.title}
-                                </h5>
-                            </div>
-                        </a>
-                    ))}
-                </div>
-            </div>
+
         </div>
     );
 }

@@ -21,15 +21,16 @@ export default function Header() {
     return (
         <header className="bg-white shadow-sm sticky top-0 z-50">
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
-                <div className="flex items-center justify-between h-20">
+                <div className="flex items-center justify-between h-[90px]">
                     {/* Logo */}
-                    <Link href="/">
+                    <Link href="/" className="flex items-center">
                         <Image
-                            src="/logo/newlogo.png"
+                            src="/logo/newlogo1.png"
                             alt="Logo"
-                            width={180}
-                            height={60}
+                            width={210}
+                            height={70}
                             priority
+                            style={{ width: '210px', height: 'auto' }}
                             className="object-contain"
                         />
                     </Link>
@@ -37,7 +38,7 @@ export default function Header() {
                     {/* Desktop Menu */}
                     <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
                         {navLinks.map((item) => (
-                            <div key={item.title} className="relative group h-20 flex items-center">
+                            <div key={item.title} className="relative group h-[90px] flex items-center">
                                 <Link
                                     href={item.href}
                                     className={`flex items-center gap-1 font-bold text-[15px] xl:text-base transition-colors relative
@@ -51,7 +52,7 @@ export default function Header() {
                                 </Link>
 
                                 {item.dropdown && item.subLinks && (
-                                    <div className="absolute top-[80px] left-0 w-48 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-t-[3px] border-[#1FA463] py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                                    <div className="absolute top-[90px] left-0 w-48 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-t-[3px] border-[#1FA463] py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
                                         {item.subLinks.map((subItem) => (
                                             <Link
                                                 key={subItem.title}
