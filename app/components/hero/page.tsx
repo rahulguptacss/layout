@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 import siteData from "@/src/data/data.json";
 
 export default function Hero() {
@@ -70,14 +71,16 @@ export default function Hero() {
                     </motion.p>
 
                     <motion.div variants={itemVariants}>
-                        <button className="mt-8 flex items-center bg-[#1FA463] rounded-full pl-10 pr-2 py-2 hover:bg-[#188c52] transition-colors group">
-                            <span className="text-white font-bold mr-6 text-[16px]">
-                                {hero.buttonText}
-                            </span>
-                            <span className="w-[44px] h-[44px] bg-white rounded-full flex justify-center items-center shadow-sm">
-                                <ArrowRight className="text-[#1FA463] w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                            </span>
-                        </button>
+                        <Link href={hero.buttonLink || "#"}>
+                            <button className="mt-8 flex items-center bg-[#1FA463] rounded-full pl-10 pr-2 py-2 hover:bg-[#188c52] transition-colors group cursor-pointer">
+                                <span className="text-white font-bold mr-6 text-[16px]">
+                                    {hero.buttonText}
+                                </span>
+                                <span className="w-[44px] h-[44px] bg-white rounded-full flex justify-center items-center shadow-sm">
+                                    <ArrowRight className="text-[#1FA463] w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                                </span>
+                            </button>
+                        </Link>
                     </motion.div>
                 </motion.div>
             </div>

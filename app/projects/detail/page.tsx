@@ -16,7 +16,7 @@ export default function ProjectDetail() {
 
             <section className="py-20 bg-[#F8F9FA]">
                 <div className="max-w-[1320px] mx-auto px-5 lg:px-8">
-                    <div className="flex flex-col lg:flex-row gap-10">
+                    <div className="flex flex-col lg:flex-row gap-10 lg:items-start">
 
                         {/* Main Content */}
                         <div className="lg:w-[72%]">
@@ -59,7 +59,7 @@ export default function ProjectDetail() {
                         </div>
 
                         {/* Sidebar */}
-                        <div className="lg:w-[28%]">
+                        <div className="lg:w-[28%] sticky top-28 z-10">
                             <Sidebar />
                         </div>
                     </div>

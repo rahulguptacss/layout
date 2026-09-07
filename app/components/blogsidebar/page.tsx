@@ -2,6 +2,7 @@
 import React from 'react';
 import { Search } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import siteData from "@/src/data/data.json";
 
 export default function BlogSidebar() {
@@ -27,19 +28,19 @@ export default function BlogSidebar() {
                 
                 <div className="space-y-6">
                     {blogSidebar.recentNews.map((post, i) => (
-                        <a href="#" key={i} className="flex items-start gap-4 group">
+                        <Link href="/blog/detail" key={i} className="flex items-start gap-4 group">
                             <div className="w-[65px] h-[65px] bg-gray-200 overflow-hidden shrink-0 rounded-md">
                                 <img src={post.img} alt={post.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
                             </div>
                             <div className="flex-1 pt-1">
-                                <h5 className="text-[#00A562] text-[16px] font-bold leading-[1.3] mb-1.5 group-hover:text-[#024933] transition-colors">
+                                <h5 className="text-[#0D2235] text-[16px] font-bold leading-[1.3] mb-1.5 group-hover:text-[#1FA463] transition-colors">
                                     {post.title}
                                 </h5>
-                                <span className="text-[#055C41] text-[13px] block">
+                                <span className="text-[#6B7280] text-[13px] block">
                                     {post.date}
                                 </span>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>

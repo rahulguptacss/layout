@@ -2,6 +2,7 @@
 import React from 'react';
 import { Search, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import siteData from "@/src/data/data.json";
 
@@ -31,10 +32,10 @@ export default function Sidebar() {
                 <ul className="space-y-4">
                     {sidebar.categories.map((cat, i) => (
                         <li key={i}>
-                            <a href="#" className="flex items-center justify-between group transition-colors">
+                            <Link href="/projects/detail" className="flex items-center justify-between group transition-colors">
                                 <span className="text-[#0D2235] text-[15px] group-hover:text-[#1FA463] transition-colors">{cat}</span>
                                 <ChevronRight className="text-[#0D2235] group-hover:text-[#1FA463] transition-colors" size={16} strokeWidth={2} />
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>

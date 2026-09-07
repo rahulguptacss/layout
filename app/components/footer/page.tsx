@@ -76,16 +76,16 @@ export default function Footer() {
                             <span className="font-bold text-white text-[15px] mr-2">
                                 Follow Us:
                             </span>
-                            <a href={footer.social.facebook} className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                            <a href={footer.social.facebook} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
                                 <Facebook size={14} />
                             </a>
-                            <a href={footer.social.linkedin} className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                            <a href={footer.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
                                 <Linkedin size={14} />
                             </a>
-                            <a href={footer.social.twitter} className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                            <a href={footer.social.twitter} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
                                 <Twitter size={14} />
                             </a>
-                            <a href={footer.social.instagram} className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
+                            <a href={footer.social.instagram} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#16A361] hover:bg-[#16A361] hover:text-white transition">
                                 <Instagram size={14} />
                             </a>
                         </div>

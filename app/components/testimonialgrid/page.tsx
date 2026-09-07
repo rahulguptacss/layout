@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -10,8 +10,21 @@ const { testimonialGrid } = siteData;
 const testimonials = testimonialGrid.testimonials;
 
 export default function TestimonialGrid() {
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3;
+    const totalPages = Math.ceil(testimonials.length / itemsPerPage);
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const currentTestimonials = testimonials.slice(startIndex, startIndex + itemsPerPage);
+
+    const handlePageChange = (page: number) => {
+        if (page >= 1 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    };
+
     return (
-        <section className="pt-8 pb-14 md:pt-10 md:pb-16 bg-white relative">
+        <section id="testimonials" className="pt-8 pb-14 md:pt-10 md:pb-16 bg-white relative">
             <div className="max-w-[1320px] mx-auto px-4 lg:px-6">
                 
                 {/* Header */}
@@ -42,7 +55,7 @@ export default function TestimonialGrid() {
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    {testimonials.map((testimonial, index) => (
+                    {currentTestimonials.map((testimonial, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
@@ -74,29 +87,41 @@ export default function TestimonialGrid() {
                 </div>
 
                 {/* Pagination */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                    className="flex justify-center items-center gap-3"
-                >
-                    <button className="w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#F9FAFB] text-[#0D2235] hover:bg-[#1FA463] hover:text-white transition-colors">
-                        <ChevronLeft size={18} strokeWidth={2.5} />
-                    </button>
-                    <button className="w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#1FA463] text-white font-bold transition-colors">
-                        1
-                    </button>
-                    <button className="w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#F9FAFB] text-[#0D2235] font-bold hover:bg-[#1FA463] hover:text-white transition-colors">
-                        2
-                    </button>
-                    <button className="w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#F9FAFB] text-[#0D2235] font-bold hover:bg-[#1FA463] hover:text-white transition-colors">
-                        3
-                    </button>
-                    <button className="w-[40px] h-[40px] rounded-full flex items-center justify-center bg-[#F9FAFB] text-[#0D2235] hover:bg-[#1FA463] hover:text-white transition-colors">
-                        <ChevronRight size={18} strokeWidth={2.5} />
-                    </button>
-                </motion.div>
+                {totalPages > 1 && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="flex justify-center items-center gap-3"
+                    >
+                        <button 
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            disabled={currentPage === 1}
+                            className={`w-[40px] h-[40px] rounded-full flex items-center justify-center transition-colors ${currentPage === 1 ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-[#F9FAFB] text-[#0D2235] hover:bg-[#1FA463] hover:text-white'}`}
+                        >
+                            <ChevronLeft size={18} strokeWidth={2.5} />
+                        </button>
+
+                        {[...Array(totalPages)].map((_, i) => (
+                            <button 
+                                key={i}
+                                onClick={() => handlePageChange(i + 1)}
+                                className={`w-[40px] h-[40px] rounded-full flex items-center justify-center font-bold transition-colors ${currentPage === i + 1 ? 'bg-[#1FA463] text-white' : 'bg-[#F9FAFB] text-[#0D2235] hover:bg-[#1FA463] hover:text-white'}`}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+
+                        <button 
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            disabled={currentPage === totalPages}
+                            className={`w-[40px] h-[40px] rounded-full flex items-center justify-center transition-colors ${currentPage === totalPages ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-[#F9FAFB] text-[#0D2235] hover:bg-[#1FA463] hover:text-white'}`}
+                        >
+                            <ChevronRight size={18} strokeWidth={2.5} />
+                        </button>
+                    </motion.div>
+                )}
 
             </div>
         </section>

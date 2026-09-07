@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Phone, MapPin, Mail } from 'lucide-react';
-import { FaFacebookF as Facebook, FaTwitter as Twitter, FaInstagram as Instagram, FaGoogle as Google } from 'react-icons/fa';
+import { FaFacebookF as Facebook, FaTwitter as Twitter, FaInstagram as Instagram, FaLinkedinIn as Linkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 import siteData from "@/src/data/data.json";
@@ -68,17 +68,17 @@ export default function TeamMemberProfile() {
 
                         {/* Social Media Links */}
                         <div className="flex gap-4">
-                            <a href={profile.social.facebook} className="w-[42px] h-[42px] border border-white/40 flex items-center justify-center text-white hover:bg-[#E4B351] hover:border-[#E4B351] transition-all">
+                            <a href={profile.social.facebook} target="_blank" rel="noopener noreferrer" className="w-[42px] h-[42px] border border-white/40 flex items-center justify-center text-white hover:bg-[#E4B351] hover:border-[#E4B351] transition-all">
                                 <Facebook size={16} />
                             </a>
-                            <a href={profile.social.twitter} className="w-[42px] h-[42px] border border-white/40 flex items-center justify-center text-white hover:bg-[#E4B351] hover:border-[#E4B351] transition-all">
+                            <a href={profile.social.twitter} target="_blank" rel="noopener noreferrer" className="w-[42px] h-[42px] border border-white/40 flex items-center justify-center text-white hover:bg-[#E4B351] hover:border-[#E4B351] transition-all">
                                 <Twitter size={16} />
                             </a>
-                            <a href="#" className="w-[42px] h-[42px] border border-white/40 flex items-center justify-center text-white hover:bg-[#E4B351] hover:border-[#E4B351] transition-all">
+                            <a href={profile.social.pinterest} target="_blank" rel="noopener noreferrer" className="w-[42px] h-[42px] border border-white/40 flex items-center justify-center text-white hover:bg-[#E4B351] hover:border-[#E4B351] transition-all">
                                 <Instagram size={16} />
                             </a>
-                            <a href="#" className="w-[42px] h-[42px] border border-white/40 flex items-center justify-center text-white hover:bg-[#E4B351] hover:border-[#E4B351] transition-all">
-                                <Google size={16} />
+                            <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-[42px] h-[42px] border border-white/40 flex items-center justify-center text-white hover:bg-[#E4B351] hover:border-[#E4B351] transition-all">
+                                <Linkedin size={16} />
                             </a>
                         </div>
                     </div>

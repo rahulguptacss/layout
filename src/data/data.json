@@ -5,6 +5,7 @@
     "titleHighlight": "Done",
     "description": "We understand that maintaining a spotless home can be a challenge in the hustle and bustle of daily life. That's why we've made it our specialty to know the ins and outs of house cleaning, so you don't have to.",
     "buttonText": "Book Now",
+    "buttonLink": "/contact",
     "backgroundImage": "/banner/herobanner.png"
   },
   "services": {
@@ -84,7 +85,8 @@
     "experienceYears": 30,
     "experienceText": "Years",
     "image": "/banner/aboutimg.png",
-    "buttonText": "Read More"
+    "buttonText": "Read More",
+    "buttonLink": "/about"
   },
   "achievements": {
     "items": [
@@ -176,7 +178,8 @@
         "label": "200+ sq m"
       }
     ],
-    "buttonText": "Calculate"
+    "buttonText": "Calculate",
+    "buttonLink": "/contact"
   },
   "faq": {
     "items": [
@@ -1406,10 +1409,10 @@
   "footer": {
     "description": "Lorem ipsum dolor sit amet, consec tetur elit eiusmod tempor incididunt labore dolore magna aliqua consec tetur adipis cing elite sed do labor.",
     "social": {
-      "facebook": "#",
-      "linkedin": "#",
-      "twitter": "#",
-      "instagram": "#"
+      "facebook": "https://www.facebook.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "twitter": "https://twitter.com/",
+      "instagram": "https://www.instagram.com/"
     },
     "address": "2976 Sunrise Avenue, Las Vegas",
     "email": "hello@anwa.com",
@@ -1535,10 +1538,10 @@
       "location": "24/7 Casino street, England",
       "email": "info@klean24.com",
       "social": {
-        "facebook": "#",
-        "twitter": "#",
-        "pinterest": "#",
-        "linkedin": "#"
+        "facebook": "https://www.facebook.com/",
+        "twitter": "https://twitter.com/",
+        "pinterest": "https://www.pinterest.com/",
+        "linkedin": "https://www.linkedin.com/"
       }
     },
     "skillsSection": {

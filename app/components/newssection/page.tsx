@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -118,12 +119,9 @@ function NewsCard({ news, index }: { news: any, index: number }) {
                 </h4>
                 
                 <div className="mt-auto">
-                    <a 
-                        href={news.link}
-                        className="inline-block bg-[#1FA463] hover:bg-[#138A56] text-white text-[15px] font-semibold px-7 py-3 rounded-full transition-colors duration-300 shadow-sm"
-                    >
+                    <Link href={news.link || "#"} className="inline-block bg-[#1FA463] hover:bg-[#138A56] text-white text-[15px] font-semibold px-7 py-3 rounded-full transition-colors duration-300 shadow-sm">
                         Read More
-                    </a>
+                    </Link>
                 </div>
             </div>
         </motion.div>

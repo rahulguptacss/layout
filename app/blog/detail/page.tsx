@@ -16,7 +16,7 @@ export default function BlogDetail() {
 
             <section className="py-20 bg-white">
                 <div className="max-w-[1200px] mx-auto px-5 lg:px-8 xl:px-12">
-                    <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+                    <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 lg:items-start">
 
                         {/* Main Content */}
                         <div className="lg:w-[65%]">
@@ -92,7 +92,7 @@ export default function BlogDetail() {
                         </div>
 
                         {/* Sidebar */}
-                        <div className="lg:w-[35%]">
+                        <div className="lg:w-[35%] sticky top-28 z-10">
                             <BlogSidebar />
                         </div>
 

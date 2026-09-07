@@ -5,6 +5,7 @@
 ================================ */
 
 import Image from "next/image";
+import Link from "next/link";
 import { Check } from "lucide-react";
 import siteData from "@/src/data/data.json";
 
@@ -116,9 +117,11 @@ export default function AboutSection() {
                         </div>
 
                         {/* Read More Button with matching padding and font */}
-                        <button className="mt-7 bg-[#0A7A51] hover:bg-[#0B2942] text-white font-bold text-[15px] py-3.5 px-9 rounded-[8px] transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer hover:scale-105 active:scale-95">
-                            {about.buttonText}
-                        </button>
+                        <Link href={about.buttonLink || "#"}>
+                            <button className="mt-7 bg-[#0A7A51] hover:bg-[#0B2942] text-white font-bold text-[15px] py-3.5 px-9 rounded-[8px] transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer hover:scale-105 active:scale-95">
+                                {about.buttonText}
+                            </button>
+                        </Link>
 
                     </div>
 

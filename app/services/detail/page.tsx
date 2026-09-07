@@ -4,6 +4,7 @@ import Footer from '../../components/footer/page'
 import PageBanner from '../../components/pagebanner/page'
 import { Search, ChevronRight, FileText, CheckCircle2, Download } from 'lucide-react'
 import CalculateCTA from '../../components/calculatecta/page'
+import Link from 'next/link'
 
 export default function ServiceDetail() {
     return (
@@ -13,7 +14,7 @@ export default function ServiceDetail() {
 
             <section className="py-20 bg-white">
                 <div className="max-w-[1320px] mx-auto px-5 lg:px-8">
-                    <div className="flex flex-col lg:flex-row gap-12">
+                    <div className="flex flex-col lg:flex-row gap-12 lg:items-start">
 
                         {/* Main Content */}
                         <div className="lg:w-2/3">
@@ -59,7 +60,7 @@ export default function ServiceDetail() {
                         </div>
 
                         {/* Sidebar */}
-                        <div className="lg:w-1/3 space-y-8">
+                        <div className="lg:w-1/3 space-y-8 sticky top-28 z-10">
 
                             {/* Search Widget */}
                             <div className="bg-[#F8F9FA] p-8 rounded-md">
@@ -82,10 +83,10 @@ export default function ServiceDetail() {
                                 <ul className="space-y-3">
                                     {["Home Cleaning", "Indoor Cleaning", "Window Cleaning", "House Cleaning", "Commercial Cleaning", "Factory Cleaning", "Room Cleaning"].map((cat, i) => (
                                         <li key={i}>
-                                            <a href="#" className="flex items-center justify-between bg-white px-5 py-3.5 rounded-sm group hover:bg-[#078B55] transition-colors border border-gray-100 shadow-sm">
+                                            <Link href="/services/detail" className="flex items-center justify-between bg-white px-5 py-3.5 rounded-sm group hover:bg-[#078B55] transition-colors border border-gray-100 shadow-sm">
                                                 <span className="text-[#6B7280] font-medium group-hover:text-white transition-colors">{cat}</span>
                                                 <ChevronRight className="text-[#078B55] group-hover:text-white transition-colors" size={18} />
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -95,14 +96,14 @@ export default function ServiceDetail() {
                             <div className="bg-[#F8F9FA] p-8 rounded-md">
                                 <h4 className="text-[#0D2235] text-xl font-bold mb-6">Download Brochures</h4>
                                 <div className="space-y-4">
-                                    <a href="#" className="flex items-center justify-between bg-white px-5 py-4 rounded-sm hover:border-[#078B55] border border-gray-100 transition-colors shadow-sm group">
+                                    <a href="/brochures/company-brochure.pdf" download className="flex items-center justify-between bg-white px-5 py-4 rounded-sm hover:border-[#078B55] border border-gray-100 transition-colors shadow-sm group">
                                         <div className="flex items-center gap-3">
                                             <FileText className="text-[#078B55]" size={24} />
                                             <span className="text-[#0D2235] font-semibold group-hover:text-[#078B55] transition-colors">Company Brochure</span>
                                         </div>
                                         <Download className="text-gray-400 group-hover:text-[#078B55] transition-colors" size={20} />
                                     </a>
-                                    <a href="#" className="flex items-center justify-between bg-white px-5 py-4 rounded-sm hover:border-[#078B55] border border-gray-100 transition-colors shadow-sm group">
+                                    <a href="/brochures/service-details.pdf" download className="flex items-center justify-between bg-white px-5 py-4 rounded-sm hover:border-[#078B55] border border-gray-100 transition-colors shadow-sm group">
                                         <div className="flex items-center gap-3">
                                             <FileText className="text-[#078B55]" size={24} />
                                             <span className="text-[#0D2235] font-semibold group-hover:text-[#078B55] transition-colors">Service Details</span>

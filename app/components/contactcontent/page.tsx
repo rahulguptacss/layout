@@ -16,7 +16,7 @@ import {
 
 import siteData from "@/src/data/data.json";
 
-const { contact } = siteData;
+const { contact, footer } = siteData;
 
 const iconMap: Record<string, LucideIcon> = {
     "map-pinned": MapPinned,
@@ -83,16 +83,16 @@ export default function ContactContent() {
                         </h2>
 
                         <div className="flex items-center gap-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-[#1FA463] text-white flex items-center justify-center hover:bg-[#0D2235] transition-colors">
+                            <a href={footer.social.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1FA463] text-white flex items-center justify-center hover:bg-[#0D2235] transition-colors">
                                 <Facebook size={18} />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-[#1FA463] text-white flex items-center justify-center hover:bg-[#0D2235] transition-colors">
+                            <a href={footer.social.twitter} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1FA463] text-white flex items-center justify-center hover:bg-[#0D2235] transition-colors">
                                 <Twitter size={18} />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-[#1FA463] text-white flex items-center justify-center hover:bg-[#0D2235] transition-colors">
+                            <a href={footer.social.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1FA463] text-white flex items-center justify-center hover:bg-[#0D2235] transition-colors">
                                 <Instagram size={18} />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-[#1FA463] text-white flex items-center justify-center hover:bg-[#0D2235] transition-colors">
+                            <a href={footer.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-[#1FA463] text-white flex items-center justify-center hover:bg-[#0D2235] transition-colors">
                                 <Linkedin size={18} />
                             </a>
                         </div>

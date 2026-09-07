@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 import siteData from "@/src/data/data.json";
 
@@ -76,10 +77,10 @@ export default function PricingSection() {
                                 </ul>
 
                                 <div className="mt-auto w-full flex justify-center">
-                                    <button className="bg-[#1FA463] hover:bg-[#138A56] text-white text-[14px] font-semibold py-[11px] px-7 rounded-[4px] transition-all duration-300 flex items-center justify-center gap-2 group/btn hover:shadow-lg">
+                                    <Link href="/enquiry" className="bg-[#1FA463] hover:bg-[#138A56] text-white text-[14px] font-semibold py-[11px] px-7 rounded-[4px] transition-all duration-300 flex items-center justify-center gap-2 group/btn hover:shadow-lg">
                                         <ArrowRight size={15} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
-                                        Book Now
-                                    </button>
+                                        Enquiry Now
+                                    </Link>
                                 </div>
                                 
                             </div>

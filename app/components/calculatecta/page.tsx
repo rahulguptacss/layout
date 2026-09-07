@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 import siteData from "@/src/data/data.json";
 
 export default function CalculateCTASection() {
@@ -53,9 +54,11 @@ export default function CalculateCTASection() {
                             <ChevronDown size={18} className="absolute right-5 md:right-6 top-1/2 -translate-y-1/2 text-[#777] pointer-events-none" />
                         </div>
 
-                        <button className="w-full md:w-[160px] lg:w-[180px] bg-[#138A56] hover:bg-[#0D2235] text-white text-[14px] md:text-[15px] font-bold px-6 py-3.5 md:px-8 md:py-4 rounded-full transition-colors duration-300 whitespace-nowrap">
-                            {calculateCTA.buttonText}
-                        </button>
+                        <Link href={calculateCTA.buttonLink || "#"}>
+                            <button className="w-full md:w-[160px] lg:w-[180px] bg-[#138A56] hover:bg-[#0D2235] text-white text-[14px] md:text-[15px] font-bold px-6 py-3.5 md:px-8 md:py-4 rounded-full transition-colors duration-300 whitespace-nowrap">
+                                {calculateCTA.buttonText}
+                            </button>
+                        </Link>
 
                     </div>
 
